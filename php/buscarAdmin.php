@@ -1,9 +1,5 @@
 <?PHP
-$hostname_localhost="localhost";
-$database_localhost="readandwatch";
-$username_localhost="root";
-$password_localhost="";
-$conexion = new mysqli($hostname_localhost, $username_localhost, $password_localhost, $database_localhost); 
+include 'conexion.php';
 $json=array();
  
 /*Comprobar si existe el usuario o no*/
