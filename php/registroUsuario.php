@@ -1,8 +1,5 @@
 <?PHP
-$hostname_localhost="localhost";
-$database_localhost="readandwatch";
-$username_localhost="root";
-$password_localhost="";
+include 'conexion.php';
 
 $json=array();
  if(isset($_GET["txtNombre"]) && isset($_GET["txtApellido"]) && isset($_GET["txtCorreo"]) && isset($_GET["txtContrasena"]) && isset($_GET["txtTelefono"]) && isset($_GET["txtDescripcion"])){
@@ -12,9 +9,6 @@ $json=array();
   $txtContrasena=$_GET['txtContrasena'];
   $txtTelefono=$_GET['txtTelefono'];
   $txtDescripcion=$_GET['txtDescripcion'] ;
-
-
-  $conexion = new mysqli($hostname_localhost, $username_localhost, $password_localhost, $database_localhost);
 
   $consulta="SELECT idUsuario from usuario WHERE correo = '{$txtCorreo}'";  
   $resultado=mysqli_query($conexion, $consulta);
