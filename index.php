@@ -3,6 +3,6 @@
    <title>Hola Mundo</title>
  </head>
  <body>
-   <?php echo $word;?>
+   <?php echo "Index de ejemplo";?>
  </body>
 </html>
