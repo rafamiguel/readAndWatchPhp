@@ -16,6 +16,7 @@ $json=array();
             echo $sentencia;
             if(mysqli_query($conexion, $sentencia)){
                 $resulta["success"]=1;
+                $json['usuario'][]=$resulta;
                 echo json_encode($json);
             }else{
               $resulta["success"]=0;
