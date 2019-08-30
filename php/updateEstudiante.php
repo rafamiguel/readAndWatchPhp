@@ -17,8 +17,7 @@ $json=array();
             descripcion='".$descripcion."' WHERE correo = '{$correo}'";  
             if(mysqli_query($conexion, $sentencia)){
                 $json['usuario'][]=array("success" => 1,
-                "contrasena" => $contrasena, "nombre" => $nombre,
-                "nombre" => $nombre, "apellidos" => $apellidos,
+                "contrasena" => $contrasena, "nombre" => $nombre, "apellidos" => $apellidos,
                 "telefono" => $telefono, "descripcion" => $descripcion,);
                 echo json_encode($json);
             }else{
