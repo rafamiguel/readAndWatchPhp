@@ -16,18 +16,18 @@ $json=array();
             echo $sentencia;
             if(mysqli_query($conexion, $sentencia)){
                 $resulta["success"]=1;
+                $resulta["contrasena"]=$contrasena;
+                $resulta["nombre"]=$nombre;
+                $resulta["apellidos"]=$apellidos;
                 $json['usuario'][]=$resulta;
                 echo json_encode($json);
             }else{
               $resulta["success"]=0;
-              echo json_encode($json);
-              $resulta["correo"]='';
               $resulta["contrasena"]='';
               $resulta["nombre"]='';
               $resulta["apellidos"]='';
-              $resulta["telefono"]='';
-              $resulta["descripcion"]='';
               $json['usuario'][]=$resulta;
+              echo json_encode($json);
             }
 
         }
