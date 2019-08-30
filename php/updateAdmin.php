@@ -5,7 +5,6 @@ $json=array();
 /*Actualizar datos del admin*/
         if(isset($_GET["correo"]) && isset($_GET["nombre"]) && isset($_GET["apellidoP"]) && isset($_GET["apellidoM"]) && 
           isset($_GET["contrasena"])){
-          echo "Hola";
             $nombre=$_GET["nombre"];
             $apellidop=$_GET["apellidoP"];
             $apellidoM=$_GET["apellidoM"];
