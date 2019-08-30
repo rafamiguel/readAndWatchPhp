@@ -8,11 +8,12 @@ $json=array();
             $nombre=$_GET["nombre"];
             $apellidos=$_GET["apellidos"];
             $contrasena=$_GET["contrasena"];
+            $correo=$_GET["correo"];
             echo "Hola";
 
             $sentencia="UPDATE usuario SET nombre=".$nombre.",apellidos=".
-            $apellidos",contrasena=".$contrasena."
-             WHERE correo = '{$txtCorreo}';";  
+            $apellidos.",contrasena=".$contrasena."
+             WHERE correo = '{$correo}';";  
             $resultado=mysqli_query($conexion, $sentencia);
             echo "adios";
             if(mysqli_affected_rows($resultado)>0){
