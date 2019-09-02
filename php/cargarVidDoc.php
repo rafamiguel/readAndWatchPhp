@@ -3,15 +3,15 @@ include 'conexion.php';
 $json=array();
 
 /*Cargar los comentarios de video*/
-        if(isset($_GET["idTema"])){
+        if(isset($_GET["idTema"]) && isset($_GET["tipo"])){
             $idTema=$_GET["idTema"];
-            $consulta="SELECT * from comentario WHERE idTema= ".$idTema;  
+            $tipo=$_GET["tipo"];
+            $consulta="SELECT * from vidDoc WHERE idTema= ".$idTema."and tipo=".$tipo;
             $resultado=mysqli_query($conexion, $consulta);
             if($registro=mysqli_fetch_array($resultado)){
                 $registro+=array("existente"=>1,);
                 $json['usuario'][] = $registro; 
             }else{
-              $resulta["idVidDoc"]='';
               $resulta["existente"]=array("existente"=>-1,);
               $json['usuario'][]=$resulta;
             }
