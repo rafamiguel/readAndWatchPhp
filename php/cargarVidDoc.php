@@ -13,6 +13,7 @@ $json=array();
             while($r=mysqli_fetch_assoc($resultado)){
                 //$status=array("existente"=>1,"cantidad"=>$rowCount,);
                 $json['usuario'][] = $r; 
+                echo json_encode($json);
                 //$json['status'][]=$status;
             }else{
               $resulta["existente"]=array("existente"=>-1,);
@@ -20,7 +21,7 @@ $json=array();
             }
 
             mysqli_close($conexion);
-            echo json_encode($json);
+            
         }
         else{
           $resulta["success"]=-1;
