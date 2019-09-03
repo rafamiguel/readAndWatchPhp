@@ -7,6 +7,7 @@ $json=array();
             $idTema=$_GET["idTema"];
             $tipo=$_GET["tipo"];
             $consulta="SELECT * from vidDoc WHERE idTema= ".$idTema."and tipo=".$tipo;
+            echo $consulta;
             $resultado=mysqli_query($conexion, $consulta);
             $rowCount=mysqli_num_rows($resultado);
             if($registro=mysqli_fetch_array($resultado)){
@@ -22,7 +23,7 @@ $json=array();
             echo json_encode($json);
         }
         else{
-          $resulta["success"]=0;
+          $resulta["success"]=-1;
           $json['usuario'][]=$resulta;
           echo json_encode($json);
         }
