@@ -9,7 +9,7 @@ $json=array();
             $consulta="SELECT * from viddoc WHERE idTema= ".$idTema."and tipo='".$tipo."'";
             $resultado=mysqli_query($conexion, $consulta);
             $rowCount=mysqli_num_rows($resultado);
-            echo $resultado;
+            echo $consulta;
             if($registro=mysqli_fetch_array($resultado)){
                 $status=array("existente"=>1,"cantidad"=>$rowCount,);
                 $json['usuario'][] = $registro; 
