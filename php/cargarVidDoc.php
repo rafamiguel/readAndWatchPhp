@@ -8,11 +8,11 @@ $json=array();
             $tipo=$_GET["tipo"];
             $consulta="SELECT * from viddoc WHERE idTema= ".$idTema." and tipo='".$tipo."'";
             $resultado=mysqli_query($conexion, $consulta);
-            $rowCount=mysqli_num_rows($resultado);
+            //$rowCount=mysqli_num_rows($resultado);
             echo $consulta;
-            while($r=$resultado->fetchall()){
+            while($r=mysqli_fetch_array($resultado)){
                 //$status=array("existente"=>1,"cantidad"=>$rowCount,);
-                $json[] = $r; 
+                $json['usuario'][] = $r; 
                 
                 //$json['status'][]=$status;
             }else{
@@ -23,10 +23,4 @@ $json=array();
             mysqli_close($conexion);
             echo json_encode($json);
         }
-        else{
-          $resulta["success"]=-1;
-          $json['usuario'][]=$resulta;
-          echo json_encode($json);
-        }
- 
 ?>
