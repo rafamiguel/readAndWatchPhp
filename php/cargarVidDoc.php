@@ -12,7 +12,7 @@ $json=array();
             echo $consulta;
             while($r=mysqli_fetch_assoc($resultado)){
                 //$status=array("existente"=>1,"cantidad"=>$rowCount,);
-                $json['usuario'][] = array($r["idUsuario"],$r["descripcion"],$r["rutaImagen"],); 
+                $json['usuario'][] = $r; 
                 //$json['status'][]=$status;
             }else{
               $resulta["existente"]=array("existente"=>-1,);
