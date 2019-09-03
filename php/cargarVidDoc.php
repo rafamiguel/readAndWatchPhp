@@ -1,9 +1,8 @@
 <?PHP
 include 'conexion.php';
 $json=array();
-            $consulta="SELECT * from viddoc WHERE idTema= ".$idTema." and tipo='".$tipo."'";
-            echo $consulta;
-/*Cargar los comentarios de video
+;
+/*Cargar los comentarios de video*/
         if(isset($_GET["idTema"]) && isset($_GET["tipo"])){
             $idTema=$_GET["idTema"];
             $tipo=$_GET["tipo"];
@@ -17,13 +16,9 @@ $json=array();
                 $json['usuario'][] = $r; 
                 
                 //$json['status'][]=$status;
-            }else{
-              $resulta["existente"]=array("existente"=>-1,);
-              $json['usuario'][]=$resulta;
             }
 
             mysqli_close($conexion);
             echo json_encode($json);
         }
-        */
 ?>
