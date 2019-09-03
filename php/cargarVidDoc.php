@@ -10,10 +10,10 @@ $json=array();
             $resultado=mysqli_query($conexion, $consulta);
             $rowCount=mysqli_num_rows($resultado);
             echo $consulta;
-            while($r=mysqli_fetch_array($resultado)){
+            while($r=$resultado->fetchall()){
                 //$status=array("existente"=>1,"cantidad"=>$rowCount,);
-                $json['usuario'][] = $r; 
-                echo json_encode($json);
+                $json[] = $r; 
+                
                 //$json['status'][]=$status;
             }else{
               $resulta["existente"]=array("existente"=>-1,);
@@ -21,7 +21,7 @@ $json=array();
             }
 
             mysqli_close($conexion);
-            
+            echo json_encode($json);
         }
         else{
           $resulta["success"]=-1;
