@@ -7,7 +7,6 @@ $json=array();
             $idTema=$_GET["idTema"];
             $tipo=$_GET["tipo"];
             $consulta="select *from viddoc WHERE idTema= ".$idTema." and tipo='".$tipo."'";
-            echo $consulta;
             $resultado=mysqli_query($conexion, $consulta);
             //$rowCount=mysqli_num_rows($resultado);
             
