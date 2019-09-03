@@ -6,7 +6,7 @@ $json=array();
         if(isset($_GET["idTema"]) && isset($_GET["tipo"])){
             $idTema=$_GET["idTema"];
             $tipo=$_GET["tipo"];
-            $consulta="SELECT * from viddoc WHERE idTema= ".$idTema." and tipo='".$tipo."'";
+            $consulta="select *from viddoc WHERE idTema= ".$idTema." and tipo='".$tipo."'";
             echo $consulta;
             $resultado=mysqli_query($conexion, $consulta);
             //$rowCount=mysqli_num_rows($resultado);
