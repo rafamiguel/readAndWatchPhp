@@ -10,7 +10,7 @@ $json=array();
             $resultado=mysqli_query($conexion, $consulta);
             $rowCount=mysqli_num_rows($resultado);
             echo $consulta;
-            while($r=mysqli_fetch_assoc($resultado)){
+            while($r=mysqli_fetch_array($resultado)){
                 //$status=array("existente"=>1,"cantidad"=>$rowCount,);
                 $json['usuario'][] = $r; 
                 echo json_encode($json);
