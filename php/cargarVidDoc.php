@@ -8,8 +8,10 @@ $json=array();
             $tipo=$_GET["tipo"];
             $consulta="SELECT * from vidDoc WHERE idTema= ".$idTema."and tipo=".$tipo;
             $resultado=mysqli_query($conexion, $consulta);
+            $rowCount=mysqli_num_rows($resultado);
             if($registro=mysqli_fetch_array($resultado)){
-                $registro+=array("existente"=>1,);
+                $registro+=array("existente"=>1,
+                                  "cantidad"=>$rowCount);
                 $json['usuario'][] = $registro; 
             }else{
               $resulta["existente"]=array("existente"=>-1,);
