@@ -12,7 +12,6 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
 
     $sentencia="insert into viddoc 
     (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idTema,idReportesVidDoc) values('v','Nose','@drawable/miniatura','{$ruta}',now(),0,1,{$idTema},1) ";
-    echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
     //echo json_encode($json);
 }
