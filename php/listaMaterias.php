@@ -1,7 +1,6 @@
 <?PHP
 include 'conexion.php';
 $json=array();
-;
 /*Cargar la lista de materias*/
             $consulta="select *from materia";
             $resultado=mysqli_query($conexion, $consulta);
