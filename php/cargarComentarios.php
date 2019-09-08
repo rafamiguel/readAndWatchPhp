@@ -3,9 +3,9 @@ include 'conexion.php';
 $json=array();
 
 /*Cargar los comentarios de video*/
-        if(isset($_GET["idTema"])){
-            $idTema=$_GET["idTema"];
-            $consulta="SELECT * from comentario WHERE idTema= ".$idTema;  
+        if(isset($_GET["idVidDoc"])){
+            $idVidDoc=$_GET["idVidDoc"];
+            $consulta="SELECT * from comentario WHERE idVidDoc= ".$idVidDoc;  
             $resultado=mysqli_query($conexion, $consulta);
             if($registro=mysqli_fetch_array($resultado)){
                 $registro+=array("existente"=>1,);
