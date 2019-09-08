@@ -8,7 +8,7 @@ $json=array();
             $nombre=$_GET["nombre"];
             $apellidos=$_GET["apellidos"];
             $contrasena=$_GET["contrasena"];
-            $correo=$_GET["correo"];
+            $idUsuario=$_GET["idUsuario"];
             $telefono=$_GET["telefono"];
             $descripcion=$_GET["descripcion"];
 
