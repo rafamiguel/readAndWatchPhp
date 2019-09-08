@@ -3,9 +3,9 @@ include 'conexion.php';
 $json=array();
  
 /*Comprobar si existe el usuario o no*/
-        if(isset($_GET["txtCorreo"])){
-            $txtCorreo=$_GET["txtCorreo"];
-            $consulta="SELECT nombre, apellidos, correo, contrasena, telefono, descripcion from usuario WHERE correo = '{$txtCorreo}' and tipo='E'";  
+        if(isset($_GET["idUsuario"])){
+            $txtCorreo=$_GET["idUsuario"];
+            $consulta="SELECT nombre, apellidos, correo, contrasena, telefono, descripcion from usuario WHERE idUsuario = '{$idUsuario}' and tipo='E'";  
             $resultado=mysqli_query($conexion, $consulta);
             if($registro=mysqli_fetch_array($resultado)){
                 $json['usuario'][] =$registro; 
