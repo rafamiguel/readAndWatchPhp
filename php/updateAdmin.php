@@ -3,16 +3,16 @@ include 'conexion.php';
 $json=array();
  
 /*Actualizar datos del admin*/
-        if(isset($_GET["correo"]) && isset($_GET["nombre"]) && isset($_GET["apellidos"])&& 
+        if(isset($_GET["idUsuario"]) && isset($_GET["nombre"]) && isset($_GET["apellidos"])&& 
           isset($_GET["contrasena"])){
             $nombre=$_GET["nombre"];
             $apellidos=$_GET["apellidos"];
             $contrasena=$_GET["contrasena"];
-            $correo=$_GET["correo"];
+            $idUsuario=$_GET["idUsuario"];
 
             $sentencia="UPDATE usuario SET nombre='".$nombre."',apellidos='".
             $apellidos."',contrasena='".$contrasena."'
-             WHERE correo = '{$correo}'";  
+             WHERE idUsuario = {$idUsuario}";  
             if(mysqli_query($conexion, $sentencia)){
                 $json['usuario'][]=array("success" => 1,
                 "contrasena" => $contrasena, "nombre" => $nombre,
