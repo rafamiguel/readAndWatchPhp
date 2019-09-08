@@ -5,11 +5,21 @@ $json=array();
 /*Cargar los temas de esa materia y de ese semestre*/
 if(isset($_GET["idMateria"]) && isset($_GET["semestre"])){
     $idMateria=$_GET["idMateria"];
-    $semestre$_GET["semestre"];
+    $semestre=$_GET["semestre"];
     $consulta="SELECT * from tema WHERE idMateria= ".$idMateria." and semestre=".$semestre;  
     echo "\nSql: ".$consulta."\n";
     $resultado=mysqli_query($conexion, $consulta);
-
+    while($registro=mysqli_fetch_array($resultado)){
+        $registro+=array("tipo"=>"tema",);
+        $json['usuario'][] = $registro; 
+        $consulta2="SELECT * from subtema WHERE idTema= ".$registro["idTema"];
+        echo "\nSql2: ".$consulta2."\n";
+        $resultado2=mysqli_query($conexion, $consulta2);  
+        while($registro2=mysqli_fetch_array($resultado2)){
+        $registro2+=array("tipo"=>"subtema",);
+        $json['usuario'][] = $registro2; 
+        }
+    }
 
     mysqli_close($conexion);
     echo json_encode($json);
