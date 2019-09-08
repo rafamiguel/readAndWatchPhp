@@ -8,12 +8,9 @@ if(isset($_GET["idMateria"]) && isset($_GET["semestre"])){
     $semestre$_GET["semestre"];
     $consulta="SELECT * from tema WHERE idMateria= ".$idMateria." and semestre=".$semestre;  
     $resultado=mysqli_query($conexion, $consulta);
-    if($registro=mysqli_fetch_array($resultado)){
+    while($registro=mysqli_fetch_array($resultado)){
         $registro+=array("existente"=>1,);
         $json['usuario'][] = $registro; 
-    }else{
-      $resulta["existente"]=array("existente"=>-1,);
-      $json['usuario'][]=$resulta;
     }
 
     mysqli_close($conexion);
