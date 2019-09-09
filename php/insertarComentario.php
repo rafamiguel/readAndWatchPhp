@@ -3,11 +3,11 @@ include 'conexion.php';
 $json=array();
 
 /*Comprobar si se ha hecho un comentario antes*/
-    if(isset($_GET["idUsuario"]) && isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["comentario"])){
+    if(isset($_GET["idUsuario"]) && isset($_GET["idVidDoc"]) && isset($_GET["texto"])){
         $idUsuario=$_GET["idUsuario"];
-        $comentario=$_GET["comentario"];
-        $tipo=$_GET["tipo"];
-        $consulta="INSERT INTO comentario(idTema,comentario,tipo) values(".$idTema.",".$comentario.",".$tipo.");";  
+        $texto=$_GET["texto"];
+        $idVidDoc=$_GET["idVidDoc"];
+        $consulta="INSERT INTO comentario(idVidDoc,texto,tipo,idReportesCom) values(".$idVidDoc.",".$comentario.",".$tipo.",1);";  
         if($resultado=mysqli_query($conexion, $consulta)){
             $json['usuario'][] =array("exito"=>1,);
         }else{
