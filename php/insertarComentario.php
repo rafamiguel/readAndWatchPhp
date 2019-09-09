@@ -8,6 +8,7 @@ $json=array();
         $texto=$_GET["texto"];
         $idVidDoc=$_GET["idVidDoc"];
         $consulta="INSERT INTO comentario(idVidDoc,texto,tipo,idReportesCom) values(".$idVidDoc.",'".$comentario."',".$tipo.",1)";  
+        echo $consulta;
         if($resultado=mysqli_query($conexion, $consulta)){
             $json['usuario'][] =array("exito"=>1,);
         }else{
