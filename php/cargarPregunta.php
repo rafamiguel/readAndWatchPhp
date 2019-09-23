@@ -2,7 +2,6 @@
 include 'conexion.php';
 $json=array();
 /*Cargar Preguntas de Temas Libres*/
-	
             $consulta="select * from pregunta";
             $resultado=mysqli_query($conexion, $consulta);
             
@@ -15,5 +14,5 @@ $json=array();
 
             mysqli_close($conexion);
             echo json_encode($json);
-        }
+        
 ?>
