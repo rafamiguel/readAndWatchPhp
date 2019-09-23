@@ -3,7 +3,7 @@ include 'conexion.php';
 $json=array();
 /*Cargar Preguntas de Temas Libres*/
 	
-            $consulta="select *from pregunta";
+            $consulta="select * from pregunta";
             $resultado=mysqli_query($conexion, $consulta);
             
             while($r=mysqli_fetch_array($resultado)){
