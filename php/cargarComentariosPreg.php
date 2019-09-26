@@ -8,8 +8,12 @@ if(isset($_GET["idPregunta"])){
     $consulta="SELECT * from comentario WHERE idPregunta= ".$idPregunta;  
     $resultado=mysqli_query($conexion, $consulta);
     while($registro=mysqli_fetch_array($resultado)){
-        $registro+=array("existente"=>1,);
-        $json['usuario'][] = $registro; 
+        $json['comentario'][] = $registro; 
+    }
+    $consulta="SELECT * from viddoc WHERE idPregunta= ".$idPregunta;  
+    $resultado=mysqli_query($conexion, $consulta);
+    while($registro=mysqli_fetch_array($resultado)){
+        $json['vidDoc'][] = $registro; 
     }
 
     mysqli_close($conexion);
