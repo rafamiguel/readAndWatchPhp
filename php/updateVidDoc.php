@@ -3,8 +3,9 @@ include 'conexion.php';
 $json=array();
 ;
 /*Cargar los comentarios de video*/
-if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])&& isset($_GET["ruta"]) && isset($_GET["fechaSubida"]) && isset($_GET["idUsuario"])){
+if(isset($_GET["idVidDoc"]) isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])&& isset($_GET["ruta"]) && isset($_GET["fechaSubida"]) && isset($_GET["idUsuario"])){
     $idVidDoc=$_GET["idVidDoc"];
+    $idTema=$_GET["idTema"];
     $tipo=$_GET["tipo"];
     $descripcion=$_GET["descripcion"];
     $ruta=$_GET["ruta"];
