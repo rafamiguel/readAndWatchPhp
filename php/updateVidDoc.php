@@ -11,11 +11,11 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"
     $fechaSubida=$_GET["fechaSubida"];
     $idUsuario=$_GET["idUsuario"];
     if(tipo=='v'){
-    $sentencia="update viddoc where idVidDoc={$idVidDoc} set
-    tipo='{$tipo}',descripcion='{$descripcion}',rutaImagen='@drawable/miniatura',ruta='{$ruta}',fechaSubida='{$fechaSubida}',visitas=0,idUsuario={$idUsuario},idSubtema={$idTema},idReporte=1";
+    $sentencia="update viddoc set
+    tipo='{$tipo}',descripcion='{$descripcion}',rutaImagen='@drawable/miniatura',ruta='{$ruta}',fechaSubida='{$fechaSubida}',visitas=0,idUsuario={$idUsuario},idSubtema={$idTema},idReporte=1 where idVidDoc={$idVidDoc}";
     }else{
-    $sentencia="update viddoc where idVidDoc={$idVidDoc} set
-    tipo='{$tipo}',descripcion='{$descripcion}',rutaImagen='@drawable/miniatura',ruta='{$ruta}',fechaSubida='{$fechaSubida}',visitas=0,idUsuario={$idUsuario},idSubtema={$idTema},idReporte=1";
+    $sentencia="update viddoc set
+    tipo='{$tipo}',descripcion='{$descripcion}',rutaImagen='@drawable/miniatura',ruta='{$ruta}',fechaSubida='{$fechaSubida}',visitas=0,idUsuario={$idUsuario},idSubtema={$idTema},idReporte=1 where idVidDoc={$idVidDoc}";
     }
     echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
