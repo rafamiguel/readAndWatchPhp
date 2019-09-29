@@ -14,7 +14,8 @@ if(isset($_GET["idMateria"]) && isset($_GET["nombre"]) && isset($_GET["rutaImage
      //update materia set nombre = "Psico", rutaImagen = "ruta" where idMateria = 9;
     if(mysqli_query($conexion, $sentencia)){
     $json['usuario'][]=array("success" => 1,);
-    else{
+
+} else{
           $resulta["success"]=0;
           $json['usuario'][]=$resulta;}
     }
