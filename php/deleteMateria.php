@@ -6,8 +6,8 @@ $json=array();
 if(isset($_GET["idMateria"])){
     $idMateria=$_GET["idMateria"];
     
-    $sentencia="delete materia where idMateria = {$idMateria}";
-     //update materia set nombre = "Psico", rutaImagen = "ruta" where idMateria = 9;
+    $sentencia="delete from materia where idMateria = {$idMateria}";
+    
     if(mysqli_query($conexion, $sentencia)){
     $json['usuario'][]=array("success" => 1,);
 
