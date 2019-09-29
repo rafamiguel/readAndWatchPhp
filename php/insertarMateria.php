@@ -7,7 +7,7 @@ $json=array();
       $idMateria=$_GET["idMateria"];
         $nombre=$_GET["nombre"];
         $foto=$_GET["rutaImagen"];
-        $consulta="INSERT INTO materia(idMateria,nombre,rutaImagen,votos,idUsuario) values({$idMateria},'{$nombre}', 0, 1);"  
+        $consulta="INSERT INTO materia(idMateria,nombre,rutaImagen,votos,idUsuario) values({$idMateria},'{$nombre}','{$foto}', 0, 1);"  
        echo $consulta;
        $resultado=mysqli_query($conexion, $consulta);
     }
