@@ -10,7 +10,7 @@ if(isset($_GET["idMateria"]) && isset($_GET["nombre"]) && isset($_GET["rutaImage
    
    
     $sentencia="update materia set
-    nombre='".$nombre."',rutaImagen='".$rutaImagen."' where idMateria = $idMateria";
+    nombre='".$nombre."',rutaImagen='".$rutaImagen."' where idMateria = ".$idMateria."";
      //update materia set nombre = "Psico", rutaImagen = "ruta" where idMateria = 9;
     }
 
