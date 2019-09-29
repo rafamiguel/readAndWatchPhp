@@ -6,7 +6,7 @@ $json=array();
     if(isset($_GET["nombre"]) && isset($_GET["rutaImagen"])){
         $nombre=$_GET["nombre"];
         $rutaImagen=$_GET["rutaImagen"];
-        $consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','"$.$rutaImagen."',0, 1)";   
+        $consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$rutaImagen."',0, 1)";   
 
        if($resultado=mysqli_query($conexion, $consulta)){
             $json['usuario'][] =array("exito"=>1,);
