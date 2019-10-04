@@ -1,5 +1,5 @@
 <?PHP
-include 'conexion.php';
+//include 'conexion.php';
    
      if(isset($_POST["rutaImagen"]) && isset($_POST["nombre"])){
         $nombre=$_POST["nombre"];
