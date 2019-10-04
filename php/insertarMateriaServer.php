@@ -11,7 +11,7 @@
         $url= "https://readandwatch.000webhostapp.com/{$path}";
        
 
-        file_put_contents($path, base64_decode($url));
+        file_put_contents($url, base64_decode($rutaImagen));
         $bytesArchivo=file_get_contents($path);
 
         //$consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
