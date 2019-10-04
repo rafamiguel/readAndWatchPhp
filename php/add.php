@@ -1,19 +1,18 @@
- <?php
-
-   $imagepic = $_FILES["logo"]["name"];
-   echo $imagepic;
-   $tempimgloc = $_FILES["logo"]["tmp_name"];
-   echo $tempimgloc;
-   $errorimg = $_FILES["logo"]["error"];
-   echo $errorimg;
-
-   if($errorimg > 0)
-   {  
-      echo "<strong> <font size='18'>There was a problem uploading your Logo. Please try again!</font></strong>";
-  echo "<BR>";
-   }
-   else 
-   {
-      move_uploaded_file($tempimgloc, "https://readandwatch.000webhostapp.com/?dir=imagen/".$imagepic);
-   }
+<?php
+$target_dir = "https://readandwatch.000webhostapp.com/?dir=imagen/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
 ?>
+      move_uploaded_file($tempimgloc, "https://readandwatch.000webhostapp.com/?dir=imagen/".$imagepic);
