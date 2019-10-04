@@ -10,13 +10,13 @@ include 'conexion.php';
         file_put_contents($path, base64_decode($rutaImagen));
         $bytesArchivo=file_get_contents($path);
 
-        $consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
-        if($resultado=mysqli_query($conexion, $consulta)){
+        //$consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
+        //if($resultado=mysqli_query($conexion, $consulta)){
            echo "registra";
-        }else{
-          echo "no registra";
-        }
-       mysqli_close($conexion);
+        //}else{
+         // echo "no registra";
+        //}
+       //mysqli_close($conexion);
 
 
         
