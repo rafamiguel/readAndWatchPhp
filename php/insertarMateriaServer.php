@@ -8,10 +8,10 @@
        
 
         $path = "imagen/$nombre.jpg";
-        $url= "https://readandwatch.000webhostapp.com/?dir=./{$path}";
+        $url= "https://readandwatch.000webhostapp.com/{$path}";
        
 
-        file_put_contents($path, base64_decode($rutaImagen));
+        file_put_contents($path, base64_decode($url));
         $bytesArchivo=file_get_contents($path);
 
         //$consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
