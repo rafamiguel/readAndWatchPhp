@@ -7,8 +7,8 @@ include 'conexion.php';
         $rutaImagen=$_POST["rutaImagen"];
         echo $nombre;
         echo $rutaImagen;
-        $path = "$nombre.jpg";
-        $url= "https://readandwatch.000webhostapp.com/imagen/$path";
+        $path = "imagen/$nombre.jpg";
+        $url= "https://readandwatch.000webhostapp.com/?dir=./$path";
        
 
         file_put_contents($path, base64_decode($rutaImagen));
