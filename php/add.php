@@ -14,6 +14,6 @@
    }
    else 
    {
-      move_uploaded_file($tempimgloc, "https://readandwatch.000webhostapp.com/imagen/".$imagepic);
+      move_uploaded_file($tempimgloc, "https://readandwatch.000webhostapp.com/?dir=imagen/".$imagepic);
    }
 ?>
