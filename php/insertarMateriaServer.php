@@ -5,11 +5,13 @@ include 'conexion.php';
    
         $nombre=$_POST["nombre"];
         $rutaImagen=$_POST["rutaImagen"];
+        echo $nombre;
+        echo $rutaImagen;
         $path = "imagen/$nombre.jpg";
         $url= "https://readandwatch.000webhostapp.com/?dir=./$path";
        
 
-        file_put_contents($path, base64_decode($rutaImagen));
+        file_put_contents($url, base64_decode($rutaImagen));
         $bytesArchivo=file_get_contents($path);
 
         $consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
