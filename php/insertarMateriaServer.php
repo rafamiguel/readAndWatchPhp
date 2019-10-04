@@ -1,14 +1,14 @@
 <?PHP
 include 'conexion.php';
    
-     if(isset($_POST["rutaImagen"] && isset($_POST["nombre"])){
+     if(isset($_POST["rutaImagen"]) && isset($_POST["nombre"])){
         $nombre=$_POST["nombre"];
 
         $rutaImagen=$_POST["rutaImagen"];
        
 
         $path = "imagen/$nombre.jpg";
-        $url= "https://readandwatch.000webhostapp.com/?dir=./$path";
+        $url= "https://readandwatch.000webhostapp.com/?dir=./{$path}";
        
 
         file_put_contents($path, base64_decode($rutaImagen));
