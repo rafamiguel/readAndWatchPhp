@@ -1,12 +1,8 @@
 <?PHP
 include 'conexion.php';
-
-
    
         $nombre=$_POST["nombre"];
         $rutaImagen=$_POST["rutaImagen"];
-        echo $nombre;
-        echo $rutaImagen;
         $path = "imagen/$nombre.jpg";
         $url= "https://readandwatch.000webhostapp.com/?dir=./$path";
        
