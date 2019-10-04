@@ -17,7 +17,7 @@ include 'conexion.php';
         //$consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
         //if($resultado=mysqli_query($conexion, $consulta)){
            echo "registra";
-         }else {echo "no registra"}
+         }else {echo "no registra";}
         //}else{
          // echo "no registra";
         //}
