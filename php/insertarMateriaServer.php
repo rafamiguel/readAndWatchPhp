@@ -1,8 +1,12 @@
 <?PHP
 include 'conexion.php';
    
+     if(isset($_POST["rutaImagen"] && isset($_POST["nombre"])){
         $nombre=$_POST["nombre"];
+
         $rutaImagen=$_POST["rutaImagen"];
+       
+
         $path = "imagen/$nombre.jpg";
         $url= "https://readandwatch.000webhostapp.com/?dir=./$path";
        
@@ -13,6 +17,7 @@ include 'conexion.php';
         //$consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
         //if($resultado=mysqli_query($conexion, $consulta)){
            echo "registra";
+         }else {echo "no registra"}
         //}else{
          // echo "no registra";
         //}
