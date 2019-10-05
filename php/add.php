@@ -1,21 +1,15 @@
-
 <?php
-$file = $_FILES['archivo']['tmp_name'];
-$remote_file = "/public_html/imagen".$_FILES['archivo']['name'];
-$ftp_server = "files.000webhost.com";
-// establecer una conexión básica
-$conn_id = ftp_connect($ftp_server);
-
-// iniciar sesión con nombre de usuario y contraseña
-$login_result = ftp_login($conn_id, "readandwatch", "Vergademono1");
-
-// cargar un archivo
-if (ftp_put($conn_id, $remote_file, $file, FTP_ASCII)) {
- echo "se ha cargado $file con éxito\n";
-} else {
- echo "Hubo un problema durante la transferencia de $file\n";
-}
-
-// cerrar la conexión ftp
-ftp_close($conn_id);
+$web = 'files.000webhost.com';
+$user = 'readandwatch';
+$pass = 'Vergademono1';
+// file location
+$server_file = '/public_html/imagen/'.$_FILES["archivo"]['name'];
+$local_file = $_FILES['archivo']['tmp_name'];
+//connect
+$conn_id = ftp_connect($web);
+$login_result = ftp_login($conn_id,$user,$pass);
+//uploading
+if (ftp_put($conn_id, $server_file, $local_file, FTP_BINARY))
+ {echo "Success";} 
+else {echo "Failed";}
 ?>
