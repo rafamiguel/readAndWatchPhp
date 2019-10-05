@@ -1,16 +1,20 @@
 <?php
-// connect and login data
-$web = 'files.000webhost.com';
-$user = 'readandwatch';
-$pass = 'Vergademono1';
-// file location
-$server_file = '/public_html/imagen/'.$_FILES["archivo"]['name'];
-$local_file = $_FILES['archivo']['tmp_name'];
-//connect
-$conn_id = ftp_connect($web);
-$login_result = ftp_login($conn_id,$user,$pass);
-//uploading
-if (ftp_put($conn_id, $server_file, $local_file, FTP_BINARY))
- {echo "Success";} 
-else {echo "Failed";}
+
+$ch = curl_init();
+$localfile = $_FILES['fichero_usuario']['tmp_name'];
+$remotefile = $_FILES['fichero_usuario']['name'];
+$fp = fopen($localfile, 'r');
+curl_setopt($ch, CURLOPT_URL, 'ftp://readandwatch:Vergademono1@files.000webhost.com/public_html/imagen'.$remotefile);
+curl_setopt($ch, CURLOPT_UPLOAD, 1);
+curl_setopt($ch, CURLOPT_INFILE, $fp);
+curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localfile));
+curl_exec ($ch);
+$error_no = curl_errno($ch);
+curl_close ($ch);
+if ($error_no == 0) {
+    $error = 'File uploaded succesfully.';
+} else {
+    $error = 'File upload error.';
+}
+
 ?>
