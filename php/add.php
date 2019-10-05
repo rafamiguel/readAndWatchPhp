@@ -1,7 +1,7 @@
 
 <?php
 $file = $_FILES['archivo']['tmp_name'];
-$remote_file = "/public_html/".$_FILES['archivo']['name'];
+$remote_file = "/public_html/imagen".$_FILES['archivo']['name'];
 $ftp_server = "files.000webhost.com";
 // establecer una conexión básica
 $conn_id = ftp_connect($ftp_server);
