@@ -2,12 +2,12 @@
 <?php
 $file = $_FILES['archivo']['tmp_name'];
 $remote_file = $_FILES['archivo']['name'];
-
+$ftp_server = "files.000webhost.com";
 // establecer una conexión básica
 $conn_id = ftp_connect($ftp_server);
 
 // iniciar sesión con nombre de usuario y contraseña
-$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+$login_result = ftp_login($conn_id, "readandwatch", "Vergademono1");
 
 // cargar un archivo
 if (ftp_put($conn_id, $remote_file, $file, FTP_ASCII)) {
