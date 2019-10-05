@@ -1,20 +1,21 @@
-<?php
 
-$ch = curl_init();
-$localfile = $_FILES['fichero_usuario']['tmp_name'];
-$remotefile = $_FILES['fichero_usuario']['name'];
-$fp = fopen($localfile, 'r');
-curl_setopt($ch, CURLOPT_URL, 'ftp://readandwatch:Vergademono1@files.000webhost.com/public_html/imagen'.$remotefile);
-curl_setopt($ch, CURLOPT_UPLOAD, 1);
-curl_setopt($ch, CURLOPT_INFILE, $fp);
-curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localfile));
-curl_exec ($ch);
-$error_no = curl_errno($ch);
-curl_close ($ch);
-if ($error_no == 0) {
-    $error = 'File uploaded succesfully.';
+<?php
+$file = $_FILES['archivo']['tmp_name'];
+$remote_file = $_FILES['archivo']['name'];
+
+// establecer una conexión básica
+$conn_id = ftp_connect($ftp_server);
+
+// iniciar sesión con nombre de usuario y contraseña
+$login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+
+// cargar un archivo
+if (ftp_put($conn_id, $remote_file, $file, FTP_ASCII)) {
+ echo "se ha cargado $file con éxito\n";
 } else {
-    $error = 'File upload error.';
+ echo "Hubo un problema durante la transferencia de $file\n";
 }
 
+// cerrar la conexión ftp
+ftp_close($conn_id);
 ?>
