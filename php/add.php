@@ -1,11 +1,13 @@
 <?php
-$target_dir = "https://readandwatch.000webhostapp.com/?dir=imagen/";
-$uploadOk = 1;
-
-$file = basename($_FILES["fileToUpload"]["name"];
-$dest = fopen("ftp://readandwatch:Vergademono1@files.000webhost.com/" . $file, "w");
-$src = file_get_contents($file);
-fwrite($dest, $src, strlen($src));
-fclose($dest); 
-
-?>
+	$ftp_server="files.000webhost.com";
+	$ftp_usuario="readandwatch";
+	$ftp_password="Vergademono1";
+	$conexion=ftp_connect($ftp_server);
+	$resultado=ftp_login($conexion, $ftp_usuario, $ftp_password);
+	if(!$resultado || !$conexion){
+		echo 'No se pudo conectar';
+		exit;
+	}else{
+		echo 'Conectado correctamente';
+	}
+?>	
