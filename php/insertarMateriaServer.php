@@ -22,10 +22,10 @@
         } else {
             $error = 'File upload error.';
         }
-
-        file_put_contents($url, base64_decode($rutaImagen));
-        $bytesArchivo=file_get_contents($path);
         echo "registra";
+        echo json_encode([
+            "imagen"=>$rutaImagen;
+        ]);
          }else {
             echo "no registra";
         }
