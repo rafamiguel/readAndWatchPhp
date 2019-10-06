@@ -6,23 +6,29 @@
 
         $rutaImagen=$_POST["rutaImagen"];
        
-
-        $path = "imagen/$nombre.jpg";
-        $url= "https://readandwatch.000webhostapp.com/{$path}";
-       
+        $ch = curl_init();
+        $localfile = $rutaImagen;
+        $remotefile = $nombre;
+        $fp = fopen($localfile, 'r');
+        curl_setopt($ch, CURLOPT_URL, 'ftp://readandwatch:Vergademono1@files.000webhost.com/public_html/imagen/'.$remotefile);
+        curl_setopt($ch, CURLOPT_UPLOAD, 1);
+        curl_setopt($ch, CURLOPT_INFILE, $fp);
+        curl_setopt($ch, CURLOPT_INFILESIZE, filesize($localfile));
+        curl_exec ($ch);
+        $error_no = curl_errno($ch);
+        curl_close ($ch);
+        if ($error_no == 0) {
+            $error = 'File uploaded succesfully.';
+        } else {
+            $error = 'File upload error.';
+        }
 
         file_put_contents($url, base64_decode($rutaImagen));
         $bytesArchivo=file_get_contents($path);
-
-        //$consulta="INSERT INTO materia(nombre,rutaImagen,votos,idUsuario) values('".$nombre."','".$bytesArchivo."',0, 1)";  
-        //if($resultado=mysqli_query($conexion, $consulta)){
-           echo "registra";
-         }else {echo "no registra";}
-        //}else{
-         // echo "no registra";
-        //}
-       //mysqli_close($conexion);
-
+        echo "registra";
+         }else {
+            echo "no registra";
+        }
 
         
        
