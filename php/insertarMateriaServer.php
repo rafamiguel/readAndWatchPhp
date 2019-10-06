@@ -23,9 +23,6 @@
             $error = 'File upload error.';
         }
         echo "registra";
-        echo json_encode([
-            "imagen"=>$rutaImagen;
-        ]);
          }else {
             echo "no registra";
         }
