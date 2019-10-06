@@ -940,6 +940,7 @@ alFFB6B//9k=
         $ch = curl_init();
         $localfile = base64_decode($rutaImagen);
         $remotefile = $nombre.".jpeg";
+        echo $localfile;
         $fp = fopen($localfile, 'r');
         curl_setopt($ch, CURLOPT_URL, 'ftp://readandwatch:Vergademono1@files.000webhost.com/public_html/imagen/'.$remotefile);
         curl_setopt($ch, CURLOPT_UPLOAD, 1);
