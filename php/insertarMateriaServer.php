@@ -7,7 +7,7 @@
         $rutaImagen=$_POST["rutaImagen"];
        
         $ch = curl_init();
-        $localfile = $rutaImagen;
+        $localfile = base64_decode($rutaImagen);
         $remotefile = $nombre;
         $fp = fopen($localfile, 'r');
         curl_setopt($ch, CURLOPT_URL, 'ftp://readandwatch:Vergademono1@files.000webhost.com/public_html/imagen/'.$remotefile);
