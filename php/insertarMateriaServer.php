@@ -8,7 +8,8 @@
         $ch = curl_init();
         $localfile = base64_decode($imgcode);
         $remotefile = $imagename.".jpeg";
-        $fp = fopen($localfile, 'r');
+        header('Content-Type: bitmap; charset=utf-8');
+        $fp = fopen($localfile, 'wb');
         curl_setopt($ch, CURLOPT_URL, 'ftp://readandwatch:Vergademono1@files.000webhost.com/public_html/imagen/'.$remotefile);
         curl_setopt($ch, CURLOPT_UPLOAD, 1);
         curl_setopt($ch, CURLOPT_INFILE, $fp);
