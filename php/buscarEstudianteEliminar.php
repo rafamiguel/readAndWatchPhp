@@ -12,6 +12,16 @@ $json=array();
 
             if($registro=mysqli_fetch_array($resultado)){
                 $json['usuario'][] =$registro; 
+            }else{
+              $resulta["correo"]='';
+              $resulta["contrasena"]='';
+              $resulta["nombre"]='';
+              $resulta["apellidos"]='';
+              $resulta["telefono"]='';
+              $resulta["descripcion"]='';
+              
+   
+              $json['usuario'][]=$resulta;
             }
 
             mysqli_close($conexion);
