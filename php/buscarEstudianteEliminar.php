@@ -7,7 +7,7 @@ $json=array();
             $nombre=$_GET["nombre"];
             $apellidos=$_GET["apellidos"];
 
-            $consulta="SELECT nombre, apellidos, rutaFoto from usuario WHERE nombre = {$nombre} and apellidos = {$apellidos}";  
+            $consulta="SELECT nombre, apellidos, rutaFoto from usuario WHERE nombre = '{$nombre}'' and apellidos = '{$apellidos}'";  
             $resultado=mysqli_query($conexion, $consulta);
 
             if($registro=mysqli_fetch_array($resultado)){
