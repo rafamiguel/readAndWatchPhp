@@ -3,12 +3,12 @@ include 'conexion.php';
 $json=array();
  
 /*Comprobar si existe el usuario o no*/
-        if(isset($_GET["nombre"]) && isset($_GET["apellidos"])  && isset($_GET["tipo"])){
+        if(isset($_GET["nombre"]) && isset($_GET["apellidos"])){
             $nombre=$_GET["nombre"];
             $apellidos=$_GET["apellidos"];
             $tipo=$_GET["tipo"];
 
-            $consulta="delete from usuario WHERE nombre = '{$nombre}' and apellidos = '{$apellidos}' and tipo = '{$tipo}'";  
+            $consulta="delete from usuario WHERE nombre = '{$nombre}' and apellidos = '{$apellidos}' and tipo = 'E'";  
 
             if($resultado=mysqli_query($conexion, $consulta)){
             $json['usuario'][] =array("exito"=>1,);
