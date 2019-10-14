@@ -8,7 +8,7 @@ $json=array();
  
 
 /*Comprobar si existe el usuario o no*/
- $consulta = "select * from usuario where correo= '{$txtCorreo}' and contrasena= '{$txtContrasena}' ;";
+ $consulta = "select * from usuario where correo= '{$txtCorreo}' and contrasena= '{$txtContrasena}' and estado='N'";
  $resultado=mysqli_query($conexion, $consulta);
  $registro=mysqli_fetch_array($resultado);
  if(is_null($registro)){
