@@ -12,7 +12,7 @@ $json=array();
             if(mysqli_query($conexion, $sentencia)){
                 $json['usuario'][]=array("success" => 1,
                 "contrasena" => $contrasena, "nombre" => $nombre, "apellidos" => $apellidos,
-                "telefono" => $telefono, "descripcion" => $descripcion, $tipo => "tipo");
+                "telefono" => $telefono, "descripcion" => $descripcion, "tipo" => $tipo);
                 echo json_encode($json);
             }else{
               $resulta["success"]=0;
