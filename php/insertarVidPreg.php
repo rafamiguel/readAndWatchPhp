@@ -12,7 +12,7 @@ if(isset($_GET["idPregunta"]) && isset($_GET["tipo"]) && isset($_GET["descripcio
     $idUsuario=$_GET["idUsuario"];
 
     $sentencia="insert into viddoc 
-    (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idPregunta,idReportesVidDoc) values('{$tipo}','{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idPregunta},1) ";
+    (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idPregunta) values('{$tipo}','{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idPregunta}) ";
     echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
     //echo json_encode($json);
