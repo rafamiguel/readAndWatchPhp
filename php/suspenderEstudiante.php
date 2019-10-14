@@ -8,7 +8,7 @@ $json=array();
             $nombre=$_GET["nombre"];
             $apellidos=$_GET["apellidos"];
 
-            $sentencia="UPDATE usuario SET estado='N' WHERE nombre = '{$nombre}' and apellidos = '{$apellidos}' and tipo='E'";  
+            $sentencia="UPDATE usuario SET estado='S' WHERE nombre = '{$nombre}' and apellidos = '{$apellidos}' and tipo='E'";  
             if(mysqli_query($conexion, $sentencia)){
                 $json['usuario'][]=array("success" => 1,
                 "contrasena" => $contrasena, "nombre" => $nombre, "apellidos" => $apellidos,
@@ -16,12 +16,6 @@ $json=array();
                 echo json_encode($json);
             }else{
               $resulta["success"]=0;
-              $resulta["contrasena"]='';
-              $resulta["nombre"]='';
-              $resulta["apellidos"]='';
-              $resulta["telefono"]='';
-              $resulta["descripcion"]='';
-              $json['usuario'][]=$resulta;
               echo json_encode($json);
             }
 
