@@ -6,6 +6,7 @@ $json=array();
     if(isset($_GET["idTema"])){
         $idTema=$_GET['idTema'];
         $consulta="DELETE FROM tema where idTema={$idTema}";  
+        echo $consulta;
         if($resultado=mysqli_query($conexion, $consulta)){
             $json['usuario'][] =array("exito"=>1,);
         }else{
