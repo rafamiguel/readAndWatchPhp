@@ -11,7 +11,7 @@ if(isset($_GET["idPregunta"]) && isset($_GET["titulo"]) && isset($_GET["descripc
     $idUsuario=$_GET["idUsuario"];
 
     $sentencia="insert into pregunta 
-    (idPregunta,titulo,descripcion,idReportesPreg,idUsuario) values({$idPregunta},'{$titulo}', '{$descripcion}',{$idUsuario}) ";
+    (idPregunta,titulo,descripcion,idUsuario) values({$idPregunta},'{$titulo}', '{$descripcion}',{$idUsuario}) ";
     echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
 	}
