@@ -1,7 +1,6 @@
 <?PHP
 include 'conexion.php';
 $json=array();
-;
 /*Cargar los comentarios de video*/
 if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])){
     $idVidDoc=$_GET["idVidDoc"];
@@ -12,7 +11,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     if(!mysqli_fetch_array($resultado)){
         $reportes=mysql_result( mysql_query("SELECT count(*) from personaReportaVidDoc where idVidDoc={$idVidDoc}"), 0);
         $reportes++;
-        $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},{$tipo},{$idVidDoc})";
+        $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
         $resultado=mysqli_query($conexion, $sentencia);
         $sentencia="insert into personaReportaVidDoc(idVidDoc,idUsuario) values({$idVidDoc},{$idUsuario})";
         $resultado=mysqli_query($conexion, $sentencia);
