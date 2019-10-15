@@ -8,14 +8,10 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $idUsuario=$_GET["idUsuario"];
     $consulta="SELECT count(*) from personaReportaVidDoc where idUsuario={$idUsuario}";
     echo $consulta;
-    $result = $conexion->query($consulta);
-    $row = $result->fetch_row();
-    if($row[0]==0)
+    if(mysqli_num_rows($conexion->query($consulta))==0)
         $consulta="SELECT count(*) from personaReportaVidDoc where idVidDoc={$idVidDoc}";
         echo $consulta;
-        $result = $conexion->query($consulta);
-        $row = $result->fetch_row();
-        $reportes=$row[0];
+        $reportes=mysqli_num_rows($conexion->query($consulta))
         $reportes++;
         $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
         echo $sentencia;
