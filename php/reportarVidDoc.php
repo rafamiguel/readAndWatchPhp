@@ -12,7 +12,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     if($repetido==0)
         $consulta="SELECT *from personaReportaVidDoc where idVidDoc={$idVidDoc}";
         echo $consulta;
-        $reportes=mysqli_num_rows($conexion->query($consulta))
+       /* $reportes=mysqli_num_rows($conexion->query($consulta))
         $reportes++;
         $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
         echo $sentencia;
@@ -20,13 +20,26 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $sentencia="insert into personaReportaVidDoc(idVidDoc,idUsuario) values({$idVidDoc},{$idUsuario})";
         echo $sentencia;
         $resultado=mysqli_query($conexion, $sentencia);
-
+        $resulta["repetido"]=0;
+        $json['usuario'][]=$resulta;
+        $resulta["success"]=1;
+        $json['usuario'][]+=$resulta;
+        echo json_encode($json);
     }else{
+        $resulta["repetido"]=1;
+        $json['usuario'][]=$resulta;
+        $resulta["success"]=1;
+        $json['usuario'][]+=$resulta;
+        echo json_encode($json);
 
     }
 
 }else{
-
+        $resulta["repetido"]=0;
+        $json['usuario'][]=$resulta;
+        $resulta["success"]=0;
+        $json['usuario'][]+=$resulta;
+      echo json_encode($json);*/
 }
 mysqli_close($conexion);
 ?>
