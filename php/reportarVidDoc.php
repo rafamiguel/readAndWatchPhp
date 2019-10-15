@@ -9,7 +9,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $consulta="select *from personaReportaVidDoc where idUsuario={$idUsuario}";
     echo $consulta;
     $resultado=mysqli_query($conexion, $consulta);
-    if(!mysqli_fetch_array($resultado)){
+    if(!$resultado){
         $reportes=mysql_result( mysql_query("SELECT count(*) from personaReportaVidDoc where idVidDoc={$idVidDoc}"), 0);
         $reportes++;
         $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
