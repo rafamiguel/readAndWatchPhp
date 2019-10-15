@@ -12,8 +12,10 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     if($repetido==0){
         $consulta="SELECT *from personaReportaVidDoc where idVidDoc={$idVidDoc}";
         echo $consulta;
-       
+        $reportes=mysqli_num_rows($conexion->query($consulta))
+        echo $reportes;
     }else{
+
 
     }
 
