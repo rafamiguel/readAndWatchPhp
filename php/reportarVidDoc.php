@@ -6,16 +6,10 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $idVidDoc=$_GET["idVidDoc"];
     $tipo=$_GET["tipo"];
     $idUsuario=$_GET["idUsuario"];
-    $consulta="select *from personaReportaVidDoc where idUsuario={$idUsuario}";
+    $consulta="SELECT count(*) from personaReportaVidDoc where idUsuario={$idUsuario}";
     echo $consulta;
-    $resultado=mysqli_query($conexion, $consulta);
-    if($registro=mysqli_fetch_array($resultado))
-        $resulta["repetido"]=1;
-        $json['usuario'][]=$resulta;
-        $resulta["success"]=1;
-        $json['usuario'][]+=$resulta;
-        echo json_encode($json);
-    }else{
+    $repetido=mysql_result( mysql_query($consulta), 0);
+    if($repetido==0)
         $reportes=mysql_result( mysql_query("SELECT count(*) from personaReportaVidDoc where idVidDoc={$idVidDoc}"), 0);
         $reportes++;
         $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
@@ -29,6 +23,13 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $resulta["success"]=1;
         $json['usuario'][]+=$resulta;
         echo json_encode($json);
+    }else{
+        $resulta["repetido"]=1;
+        $json['usuario'][]=$resulta;
+        $resulta["success"]=1;
+        $json['usuario'][]+=$resulta;
+        echo json_encode($json);
+
     }
 
 }else{
