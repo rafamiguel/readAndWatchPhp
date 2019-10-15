@@ -19,13 +19,15 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $json['usuario'][]=$resulta;
         $resulta["success"]=1;
         $json['usuario'][]+=$resulta;
+        echo json_encode($json);
     }else{
         $resulta["repetido"]=1;
         $json['usuario'][]=$resulta;
         $resulta["success"]=1;
         $json['usuario'][]+=$resulta;
+        echo json_encode($json);
     }
-    echo json_encode($json);
+
 }else{
         $resulta["repetido"]=0;
         $json['usuario'][]=$resulta;
