@@ -22,11 +22,11 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $resultado=mysqli_query($conexion, $sentencia);
 
     }else{
-
+        echo "error1";
     }
 
 }else{
-
+    echo "error2";
 }
 mysqli_close($conexion);
 ?>
