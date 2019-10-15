@@ -29,4 +29,6 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     echo "error2";
 }
 mysqli_close($conexion);
+echo phpversion();
+echo "LOG ERROR";
 ?>
