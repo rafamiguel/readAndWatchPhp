@@ -9,10 +9,10 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $consulta="SELECT * from personaReportaVidDoc where idUsuario={$idUsuario}";
     echo $consulta;
     $repetido= "<br>".mysqli_num_rows($conexion->query($consulta));
-    if($repetido==0)
+    if($repetido==0){
         $consulta="SELECT *from personaReportaVidDoc where idVidDoc={$idVidDoc}";
         echo $consulta;
-       /* $reportes=mysqli_num_rows($conexion->query($consulta))
+        $reportes=mysqli_num_rows($conexion->query($consulta))
         $reportes++;
         $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
         echo $sentencia;
@@ -39,7 +39,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $json['usuario'][]=$resulta;
         $resulta["success"]=0;
         $json['usuario'][]+=$resulta;
-      echo json_encode($json);*/
+      echo json_encode($json);
 }
 mysqli_close($conexion);
 ?>
