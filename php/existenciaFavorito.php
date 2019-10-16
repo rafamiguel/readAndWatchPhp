@@ -14,7 +14,7 @@ $json=array();
             if($registro=mysqli_fetch_array($resultado)){
                 $json['usuario'][] =$registro; 
             }else{
-              $resulta["idFavorito"]='';
+              $resulta["idFavorito"]=0;
               $json['usuario'][]=$resulta;
             }
 
