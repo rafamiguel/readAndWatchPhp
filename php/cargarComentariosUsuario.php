@@ -13,7 +13,7 @@ if(isset($_GET["idUsuario"])){
   	}
 
 	$consulta="select idVidDoc from viddoc WHERE idUsuario={$idUsuario} and idPregunta IS NOT NULL";
-	echo "<br".$consulta."<br>";
+	echo "<br>".$consulta."<br>";
 	$resultado=mysqli_query($conexion, $consulta);
 	echo "<br>".$resultado;
   	while($r=mysqli_fetch_array($resultado)){
