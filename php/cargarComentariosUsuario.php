@@ -15,7 +15,7 @@ if(isset($_GET["idUsuario"])){
 	echo "<br>".$consulta."<br>";
 	$resultado=mysqli_query($conexion, $consulta);
   	while($r=mysqli_fetch_array($resultado)){
-        $json['usuario'][] = $r; 
+        $json['videosUsuario'][] = $r; 
   	}
 	echo "<br>"."Hola";
     mysqli_close($conexion);
