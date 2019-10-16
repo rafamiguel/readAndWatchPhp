@@ -12,8 +12,9 @@ if(isset($_GET["idUsuario"])){
   	}
 
 	$consulta="select idVidDoc from viddoc WHERE idUsuario={$idUsuario} and idPregunta IS NOT NULL";
+	echo $consulta;
 	$resultado=mysqli_query($conexion, $consulta);
-	
+
   	while($r=mysqli_fetch_array($resultado)){
         $json['usuario'][] += $r; 
   	}
