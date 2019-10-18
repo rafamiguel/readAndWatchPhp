@@ -12,23 +12,23 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     if($repetido==0){
         $consulta="SELECT reportes from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
         if($resultado=mysqli_query($conexion, $sentencia)){
-            while($row = mysqli_fetch_assoc($resultado)){
-                $reportes = $row['reportes'];
-                $reportes++;
+            while($row = mysqli_fetch_array($resultado)){
+                    $reportes = $row['reportes'];
+                    $reportes++;
                 }
+            if($reportes==1){
+                $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
+                $resultado=mysqli_query($conexion, $sentencia);
+            }else{
+                $sentencia="update reportesviddoc  set reportes={$reportes} where idVidDoc={$idVidDoc}";
+                $resultado=mysqli_query($conexion, $sentencia);
             }
-        if($reportes==1){
-            $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
+            $sentencia="insert into personaReportaVidDoc(idVidDoc,idUsuario) values({$idVidDoc},{$idUsuario})";
             $resultado=mysqli_query($conexion, $sentencia);
-        }else{
-            $sentencia="update reportesviddoc  set reportes={$reportes} where idVidDoc={$idVidDoc}";
-            $resultado=mysqli_query($conexion, $sentencia);
+            $json['usuario'][]=array("repetido" => FALSE,);
+            $json['usuario'][]=array("success" => TRUE,);
+            echo json_encode($json);
         }
-        $sentencia="insert into personaReportaVidDoc(idVidDoc,idUsuario) values({$idVidDoc},{$idUsuario})";
-        $resultado=mysqli_query($conexion, $sentencia);
-        $json['usuario'][]=array("repetido" => FALSE,);
-        $json['usuario'][]=array("success" => TRUE,);
-        echo json_encode($json);
     }else{
         $json['usuario'][]=array("repetido" => TRUE,);
         $json['usuario'][]=array("success" => TRUE,);
