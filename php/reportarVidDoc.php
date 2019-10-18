@@ -18,12 +18,12 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $resultado=mysqli_query($conexion, $sentencia);
         echo "exito";
         $json['usuario'][]=array("repetido" => 0,);
-        $json['usuario'][]+=array("success" => 1,);
+        $json['usuario'][]=array("success" => 1,);
         echo json_encode($json);
     }else{
         echo "repetido";
         $json['usuario'][]=array("repetido" => 1,);
-        $json['usuario'][]+=array("success" => 1,);
+        $json['usuario'][]=array("success" => 1,);
         echo json_encode($json);
 
     }
@@ -31,7 +31,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
 }else{
     echo "error";
     $json['usuario'][]=array("repetido" => 0,);
-    $json['usuario'][]+=array("success" => 0,);
+    $json['usuario'][]=array("success" => 0,);
     echo json_encode($json);
 }
 mysqli_close($conexion);
