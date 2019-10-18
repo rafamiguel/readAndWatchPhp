@@ -10,11 +10,13 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     and idVidDoc={$idVidDoc}";
     $repetido= mysqli_num_rows($conexion->query($consulta));
     if($repetido==0){
-        $consulta="SELECT COUNT(*) from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
-        $resultado=mysqli_query($conexion, $sentencia);
-        $row = mysqli_fetch_assoc($resultado);
-        $reportes = $row['count'];
-        $reportes++;
+        $consulta="SELECT reportes from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
+        if($resultado=mysqli_query($conexion, $sentencia)){
+            while($row = mysqli_fetch_assoc($resultado)){
+                $reportes = $row['reportes'];
+                $reportes++;
+                }
+            }
         if($reportes==1){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
             $resultado=mysqli_query($conexion, $sentencia);
