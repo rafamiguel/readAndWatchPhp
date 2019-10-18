@@ -10,7 +10,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     and idVidDoc={$idVidDoc}";
     $repetido= mysqli_num_rows($conexion->query($consulta));
     if($repetido==0){
-        $consulta="SELECT *from reportesviddoc where idVidDoc={$idVidDoc}";
+        $consulta="SELECT *from reportesviddoc where idVidDoc={$idVidDoc} and tipo={$tipo}";
         $reportes=mysqli_num_rows($conexion->query($consulta));
         $reportes++;
         if($reportes==1){
