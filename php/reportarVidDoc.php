@@ -11,7 +11,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $repetido= mysqli_num_rows($conexion->query($consulta));
     if($repetido==0){
         $consulta="SELECT COUNT(*) from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
-        $resultado=$conexion->query($consulta);
+        $resultado=mysqli_query($conexion, $sentencia);
         $row = mysql_fetch_assoc($resultado);
         $reportes = $row['count'];
         $reportes++;
