@@ -11,16 +11,13 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $repetido= mysqli_num_rows($conexion->query($consulta));
     if($repetido==0){
         $consulta="SELECT *from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
-        echo $consulta."<br>";
         $reportes=mysqli_num_rows($conexion->query($consulta));
         $reportes++;
-        echo "Reportes:".$reportes."<br>";
         if($reportes==1){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
             $resultado=mysqli_query($conexion, $sentencia);
         }else{
-            $sentencia="update reportesviddoc where idVidDoc={$idVidDoc} set reportes={$reportes}";
-            echo $sentencia;
+            $sentencia="update reportesviddoc  set reportes={$reportes} where idVidDoc={$idVidDoc}";
             $resultado=mysqli_query($conexion, $sentencia);
         }
         $sentencia="insert into personaReportaVidDoc(idVidDoc,idUsuario) values({$idVidDoc},{$idUsuario})";
