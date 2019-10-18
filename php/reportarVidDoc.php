@@ -6,7 +6,8 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     $idVidDoc=$_GET["idVidDoc"];
     $tipo=$_GET["tipo"];
     $idUsuario=$_GET["idUsuario"];
-    $consulta="SELECT * from personaReportaVidDoc where idUsuario={$idUsuario}";
+    $consulta="SELECT * from personaReportaVidDoc where idUsuario={$idUsuario} 
+    and idVidDoc={$idVidDoc}";
     $repetido= mysqli_num_rows($conexion->query($consulta));
     if($repetido==0){
         $consulta="SELECT *from personaReportaVidDoc where idVidDoc={$idVidDoc}";
