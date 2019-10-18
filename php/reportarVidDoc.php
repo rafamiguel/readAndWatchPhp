@@ -20,6 +20,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
             $resultado=mysqli_query($conexion, $sentencia);
         }else{
             $sentencia="update reportesviddoc where idVidDoc={$idVidDoc} set reportes={$reportes}";
+            echo $sentencia;
             $resultado=mysqli_query($conexion, $sentencia);
         }
         $sentencia="insert into personaReportaVidDoc(idVidDoc,idUsuario) values({$idVidDoc},{$idUsuario})";
