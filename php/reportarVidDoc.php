@@ -14,10 +14,9 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $consulta="SELECT reportes from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
         echo $consulta."<br>";
         $resultado=mysqli_query($conexion, $sentencia);
-        if($row = mysqli_fetch_array($resultado)){
-            $reportes = $row['reportes'];
-            echo "Reportes:".$reportes."<br>";
-        }
+        $row = $resultado->fetch_array(MYSQLI_NUM);
+        $reportes = $row['reportes'];
+        echo "Reportes:".$reportes."<br>";
         $reportes+=1;
         if($reportes==1){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
