@@ -17,11 +17,11 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
             echo "x"."<br>";
             if($row = mysqli_fetch_array($resultado)){
                     $reportes = $row['reportes'];
-                    $reportes++;
                     echo $reportes."<br>";
             }
         }
-        if($reportes==0){
+        $reportes++;
+        if($reportes==1){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
             $resultado=mysqli_query($conexion, $sentencia);
         }else{
