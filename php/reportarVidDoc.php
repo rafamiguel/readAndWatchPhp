@@ -13,12 +13,11 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         $reportes=0;
         $consulta="SELECT reportes from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
         echo $consulta."<br>";
-        if($resultado=mysqli_query($conexion, $sentencia)){
-            echo "x"."<br>";
-            if($row = mysqli_fetch_array($resultado)){
-                    $reportes = $row['reportes'];
-                    echo $reportes."<br>";
-            }
+        echo "x"."<br>";
+        $resultado=mysqli_query($conexion, $sentencia)
+        if($row = mysqli_fetch_array($resultado)){
+            $reportes = $row['reportes'];
+            echo $reportes."<br>";
         }
         $reportes++;
         if($reportes==1){
