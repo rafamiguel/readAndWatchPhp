@@ -12,11 +12,9 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
     if($repetido==0){
         $reportes=0;
         $consulta="SELECT reportes from reportesviddoc where idVidDoc={$idVidDoc} and tipo='{$tipo}'";
-        echo $consulta."<br>";
         if($resultado=$conexion->query($consulta)){
         $row = $resultado->fetch_array(MYSQLI_NUM);
         $reportes = $row[0];
-        echo "Reportes:".$reportes."<br>";
         }
         $reportes+=1;
         if($reportes==1){
