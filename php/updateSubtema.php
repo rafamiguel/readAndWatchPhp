@@ -4,7 +4,7 @@ $json=array();
 
 /*Cargar los comentarios de video*/
 if(isset($_GET["idSubtema"]) && isset($_GET["nombre"])){
-    $idMateria=$_GET["idSubtema"];
+    $idSubtema=$_GET["idSubtema"];
     $nombre=$_GET["nombre"]; 
    
     $sentencia="update subtema set
