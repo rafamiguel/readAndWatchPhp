@@ -3,8 +3,8 @@ include 'conexion.php';
 $json=array();
 
 /*Cargar los comentarios de video*/
-if(isset($_GET["nueva"]) && isset($_GET["idUsuario"])){
-    $contrasena=$_GET["nueva"];
+if(isset($_GET["contrasena"]) && isset($_GET["idUsuario"])){
+    $contrasena=$_GET["contrasena"];
     $idUsuario=$_GET["idUsuario"];
    
     $sentencia="update usuario set
