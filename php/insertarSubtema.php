@@ -3,8 +3,8 @@ include 'conexion.php';
 $json=array();
  
 /*Comprobar si existe el usuario o no*/
-        if(isset($_GET["idSubtema"]) && isset($_GET["idUsuario"]) && isset($_GET["nombre"])){
-            $idSubtema=$_GET["idSubtema"];
+        if(isset($_GET["idTema"]) && isset($_GET["idUsuario"]) && isset($_GET["nombre"])){
+            $idTema=$_GET["idTema"];
              $idUsuario=$_GET["idUsuario"];
               $nombre=$_GET["nombre"];
             $consulta="insert into subtema (nombre,votos,idTema,idUsuario) values ('".$nombre."',0, ".$idTema.",".$idUsuario.")";
