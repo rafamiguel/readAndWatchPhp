@@ -11,7 +11,7 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["idTema"]) && isset($_GET["tipo"]) &&
     $ruta=$_GET["ruta"];
     $fechaSubida=$_GET["fechaSubida"];
     $idUsuario=$_GET["idUsuario"];
-    if(tipo=='v'){
+    if($tipo=='v'){
     $sentencia="update viddoc set
     tipo='{$tipo}',descripcion='{$descripcion}',rutaImagen='@drawable/miniatura',ruta='{$ruta}',fechaSubida='{$fechaSubida}',visitas=0,idUsuario={$idUsuario},idSubtema={$idTema} where idVidDoc={$idVidDoc}";
     }else{
