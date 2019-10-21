@@ -2,22 +2,23 @@
 include 'conexion.php';
 $json=array();
 /*Cargar los comentarios de video*/
-if(isset($_GET["idPregunta"]) && isset($_GET["idUsuario"])){
+if(isset($_GET["idPregunta"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])){
     $idPregunta=$_GET["idPregunta"];
     $idUsuario=$_GET["idUsuario"];
+    $tipo=$_GET["tipo"];
     $consulta="SELECT * from personaReportaPreg where idUsuario={$idUsuario} 
     and idPregunta={$idPregunta}";
     $repetido= mysqli_num_rows($conexion->query($consulta));
     if($repetido==0){
         $reportes=0;
-        $consulta="SELECT reportes from reportespreg where idPregunta={$idPregunta}";
+        $consulta="SELECT reportes from reportespreg where idPregunta={$idPregunta} and tipo='{$tipo}'";
         if($resultado=$conexion->query($consulta)){
         $row = $resultado->fetch_array(MYSQLI_NUM);
         $reportes = $row[0];
         }
         $reportes+=1;
         if($reportes==1){
-            $sentencia="insert into reportespreg(reportes,idPregunta) values({$reportes},{$idPregunta})";
+            $sentencia="insert into reportespreg(reportes,tipo,idPregunta) values({$reportes},'{$tipo}',{$idPregunta})";
             $resultado=mysqli_query($conexion, $sentencia);
         }else{
             $sentencia="update reportespreg set reportes={$reportes} where idPregunta={$idPregunta}";
