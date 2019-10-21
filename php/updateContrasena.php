@@ -20,6 +20,9 @@ if(isset($_GET["nueva"]) && isset($_GET["idUsuario"])){
           echo "error";
         }
     }
+    else{
+      echo "error2";
+    }
     //echo $sentencia;
     echo json_encode($json);
 mysqli_close($conexion);
