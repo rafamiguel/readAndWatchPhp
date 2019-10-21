@@ -12,10 +12,13 @@ if(isset($_GET["nueva"]) && isset($_GET["idUsuario"])){
      //update materia set nombre = "Psico", rutaImagen = "ruta" where idMateria = 9;
     if(mysqli_query($conexion, $sentencia)){
     $json['usuario'][]=array("success" => 1,);
+    echo $sentencia;
 
 } else{
           $resulta["success"]=0;
-          $json['usuario'][]=$resulta;}
+          $json['usuario'][]=$resulta;
+          echo "error";
+        }
     }
     //echo $sentencia;
     echo json_encode($json);
