@@ -8,7 +8,7 @@ if(isset($_GET["idTema"]) && isset($_GET["nombre"])){
     $nombre=$_GET["nombre"];
    
     $sentencia="update tema set
-    nombre='{$nombre}' idTema = {$idTema}";
+    nombre='{$nombre}' where idTema = {$idTema}";
      
     if(mysqli_query($conexion, $sentencia)){
     $json['usuario'][]=array("success" => 1,);
