@@ -14,8 +14,7 @@ if(isset($_GET["correo"]) && isset($_GET["contrasena"])){
     $json['usuario'][]=array("success" => 1,);
  
 } else{
-          $resulta["success"]=0;
-          $json['usuario'][]=$resulta;
+        $json['usuario'][]=array("success" => 0,);
           
         }
     }
