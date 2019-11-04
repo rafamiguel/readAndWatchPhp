@@ -4,9 +4,9 @@ $json=array();
 ;
 /*Cargar los comentarios de video*/
         if(isset($_GET["idUsuario"]) && isset($_GET["tipo"])){
-            $idTema=$_GET["idUsuario"];
+            $idUsuario=$_GET["idUsuario"];
             $tipo=$_GET["tipo"];
-            $consulta="select *from viddoc WHERE idTema= ".$idTema." and tipo='".$tipo."'";
+            $consulta="select *from viddoc WHERE idUsuario= ".$idUsuario." and tipo='".$tipo."'";
             $resultado=mysqli_query($conexion, $consulta);
             //$rowCount=mysqli_num_rows($resultado);
             
