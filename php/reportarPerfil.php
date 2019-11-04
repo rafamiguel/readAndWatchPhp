@@ -25,22 +25,21 @@ if(isset($_GET["idPerfil"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
             $resultado=mysqli_query($conexion, $sentencia);
         }
         $sentencia="insert into personaReportaPerfil(idPerfil,idUsuario) values({$idPerfil},{$idUsuario})";
-        echo $sentencia;
         $resultado=mysqli_query($conexion, $sentencia);
         $json['usuario'][]=array("repetido" => FALSE,);
         $json['usuario'][]=array("success" => TRUE,);
-        echo json_encode($json);
+        //echo json_encode($json);
     }else{
         $json['usuario'][]=array("repetido" => TRUE,);
         $json['usuario'][]=array("success" => TRUE,);
-        echo json_encode($json);
+        //echo json_encode($json);
 
     }
 
 }else{
     $json['usuario'][]=array("repetido" => FALSE,);
     $json['usuario'][]=array("success" => FALSE,);
-    echo json_encode($json);
+    //echo json_encode($json);
 }
 mysqli_close($conexion);
 ?>
