@@ -8,7 +8,7 @@ $json=array();
   $txtCorreo=$_GET['txtCorreo'];
   $txtContrasena=$_GET['txtContrasena'];
   $txtTelefono=$_GET['txtTelefono'];
-  $txtDescripcion=$_GET['txtDescripcion'] ;
+  $txtDescripcion=$_GET['txtDescripcion'];
   $txtRutaFoto=$_GET['txtRutaFoto'];
 
   $consulta="SELECT idUsuario from usuario WHERE correo = '{$txtCorreo}'";  
@@ -17,7 +17,7 @@ $json=array();
  if(is_null(mysqli_fetch_array($resultado))){
    $json['usuario'][]=array("existencia" => "no",);
   echo json_encode($json);
-  $insert="INSERT INTO usuario(correo, contrasena, nombre, apellidos, telefono, descripcion, rutaFoto, tipo, estado) VALUES ('{$txtCorreo}', '{$txtContrasena}', '{$txtNombre}', '{$txtApellido}', '{$txtTelefono}', '{$txtDescripcion}', '{$txtRutaFoto}, 'E', 'N')";  
+  $insert="INSERT INTO usuario(correo, contrasena, nombre, apellidos, telefono, descripcion, rutaFoto, tipo, estado) VALUES ('{$txtCorreo}', '{$txtContrasena}', '{$txtNombre}', '{$txtApellido}', '{$txtTelefono}', '{$txtDescripcion}', '{$txtRutaFoto}', 'E', 'N')";  
  
   if($conexion->query($insert)===TRUE){
    
