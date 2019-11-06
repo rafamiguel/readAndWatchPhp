@@ -19,7 +19,6 @@ $json=array();
   echo json_encode($json);
   $insert="INSERT INTO usuario(correo, contrasena, nombre, apellidos, telefono, descripcion, rutaFoto, tipo, estado) VALUES ('{$txtCorreo}', '{$txtContrasena}', '{$txtNombre}', '{$txtApellido}', '{$txtTelefono}', '{$txtDescripcion}', '{$txtRutaFoto}', 'E', 'N')";  
  
-  echo $insert;
   if($conexion->query($insert)===TRUE){
    
    
@@ -33,6 +32,8 @@ $json=array();
    echo json_encode($json);
    
   }else{
+
+     echo $txtRutaFoto;
    $resulta["txtCorreo"]="No registra";
    $resulta["txtContrasena"]="NO registra";
    $resulta["txtNombre"]="NO registra";
