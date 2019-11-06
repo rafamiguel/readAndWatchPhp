@@ -25,7 +25,6 @@ if(isset($_GET["idPerfil"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
             $resultado=mysqli_query($conexion, $sentencia);
         }
         $sentencia="insert into personaReportaPerfil(idPerfil,idUsuario) values({$idPerfil},{$idUsuario})";
-        echo $sentencia;
         $resultado=mysqli_query($conexion, $sentencia);
         $json['usuario'][]=array("repetido" => FALSE,);
         $json['usuario'][]=array("success" => TRUE,);

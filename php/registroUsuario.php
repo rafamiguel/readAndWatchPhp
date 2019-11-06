@@ -2,13 +2,14 @@
 include 'conexion.php';
 
 $json=array();
- if(isset($_GET["txtNombre"]) && isset($_GET["txtApellido"]) && isset($_GET["txtCorreo"]) && isset($_GET["txtContrasena"]) && isset($_GET["txtTelefono"]) && isset($_GET["txtDescripcion"])){
+ if(isset($_GET["txtNombre"]) && isset($_GET["txtApellido"]) && isset($_GET["txtCorreo"]) && isset($_GET["txtContrasena"]) && isset($_GET["txtTelefono"])&& isset($_GET["txtRutaFoto"]) && isset($_GET["txtDescripcion"])){
   $txtNombre=$_GET['txtNombre'];
   $txtApellido=$_GET['txtApellido'];
   $txtCorreo=$_GET['txtCorreo'];
   $txtContrasena=$_GET['txtContrasena'];
   $txtTelefono=$_GET['txtTelefono'];
-  $txtDescripcion=$_GET['txtDescripcion'] ;
+  $txtDescripcion=$_GET['txtDescripcion'];
+  $txtRutaFoto=$_GET['txtRutaFoto'];
 
   $consulta="SELECT idUsuario from usuario WHERE correo = '{$txtCorreo}'";  
   $resultado=mysqli_query($conexion, $consulta);
@@ -16,7 +17,7 @@ $json=array();
  if(is_null(mysqli_fetch_array($resultado))){
    $json['usuario'][]=array("existencia" => "no",);
   echo json_encode($json);
-  $insert="INSERT INTO usuario(correo, contrasena, nombre, apellidos, telefono, descripcion, rutaFoto, tipo, estado) VALUES ('{$txtCorreo}', '{$txtContrasena}', '{$txtNombre}', '{$txtApellido}', '{$txtTelefono}', '{$txtDescripcion}', 'hshsh', 'E', 'N')";  
+  $insert="INSERT INTO usuario(correo, contrasena, nombre, apellidos, telefono, descripcion, rutaFoto, tipo, estado) VALUES ('{$txtCorreo}', '{$txtContrasena}', '{$txtNombre}', '{$txtApellido}', '{$txtTelefono}', '{$txtDescripcion}', '{$txtRutaFoto}', 'E', 'N')";  
  
   if($conexion->query($insert)===TRUE){
    
@@ -31,6 +32,8 @@ $json=array();
    echo json_encode($json);
    
   }else{
+
+     echo $txtRutaFoto;
    $resulta["txtCorreo"]="No registra";
    $resulta["txtContrasena"]="NO registra";
    $resulta["txtNombre"]="NO registra";
