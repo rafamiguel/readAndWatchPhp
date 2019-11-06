@@ -5,7 +5,7 @@ $json=array();
 /*Comprobar si existe el usuario o no*/
         if(isset($_GET["idUsuario"])){
             $idUsuario=$_GET["idUsuario"];
-            $consulta="SELECT nombre, apellidos, correo, contrasena, telefono, descripcion from usuario WHERE idUsuario = {$idUsuario} and tipo='E'";  
+            $consulta="SELECT nombre, apellidos, correo, contrasena, telefono, descripcion, rutaFoto from usuario WHERE idUsuario = {$idUsuario} and tipo='E'";  
             $resultado=mysqli_query($conexion, $consulta);
             if($registro=mysqli_fetch_array($resultado)){
                 $json['usuario'][] =$registro; 
