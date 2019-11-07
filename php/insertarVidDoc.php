@@ -21,7 +21,7 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
 
     $sentencia = "select idVidDoc from viddoc";
     $resultado=mysqli_query($conexion, $sentencia);
-
+    sleep(2);
     $id = 0;
     while($registro=mysqli_fetch_array($resultado)){
         $id = $registro['idVidDoc']; 
