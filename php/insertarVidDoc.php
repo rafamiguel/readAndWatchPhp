@@ -26,7 +26,7 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
     while($registro=mysqli_fetch_array($resultado)){
         $id = $registro['idVidDoc']; 
     }
-    $resulta['vidDoc']=array("idVidDoc"=>$id,);
+    $resulta=array("idVidDoc"=>$id,);
     $json['vidDoc'][] = $resulta; 
     echo json_encode($json);
 }
