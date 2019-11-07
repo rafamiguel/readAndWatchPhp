@@ -2,7 +2,7 @@
 include 'conexion.php';
 $json=array();
 
-$sentencia = "select idVidDoc from viddoc";
+$sentencia = "select idVidDoc from viddoc where tipo='d'";
 $resultado=mysqli_query($conexion, $sentencia);
 $id = 0;
 while($registro=mysqli_fetch_array($resultado)){
