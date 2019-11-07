@@ -7,7 +7,7 @@ $json=array();
         $idUsuario=$_GET["idUsuario"];
         $texto=$_GET["texto"];
         $idPregunta=$_GET["idPregunta"];
-        $consulta="INSERT INTO comentario(idUsuario,idPregunta,texto) values(".$idUsuario.",".$idPregunta.",'".$texto."')";  
+        $consulta="INSERT INTO comentario(idUsuario,idPregunta,texto, eliminado) values(".$idUsuario.",".$idPregunta.",'".$texto."', 'N')";  
         if($resultado=mysqli_query($conexion, $consulta)){
             $json['usuario'][] =array("exito"=>1,);
         }else{
