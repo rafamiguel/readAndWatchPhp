@@ -3,17 +3,16 @@ include 'conexion.php';
 $json=array();
 ;
 /*Cargar los comentarios de video*/
-if(isset($_GET["idPregunta"]) && isset($_GET["tipo"]) && isset($_GET["eliminado"])  && isset($_GET["descripcion"])&& isset($_GET["ruta"]) && isset($_GET["fechaSubida"]) && isset($_GET["idUsuario"])){
+if(isset($_GET["idPregunta"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])&& isset($_GET["ruta"]) && isset($_GET["fechaSubida"]) && isset($_GET["idUsuario"])){
     $idPregunta=$_GET["idPregunta"];
     $tipo=$_GET["tipo"];
     $descripcion=$_GET["descripcion"];
     $ruta=$_GET["ruta"];
     $fechaSubida=$_GET["fechaSubida"];
     $idUsuario=$_GET["idUsuario"];
-    $eliminado=$_GET["eliminado"];
 
     $sentencia="insert into viddoc 
-    (tipo, eliminado, descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idPregunta) values('{$tipo}', '{$eliminado}','{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idPregunta}) ";
+    (tipo, eliminado, descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idPregunta) values('{$tipo}', 'N','{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idPregunta}) ";
     echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
     //echo json_encode($json);
