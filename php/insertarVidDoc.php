@@ -23,10 +23,9 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
     $sentencia = "select idVidDoc from viddoc";
     $resultado=$conexion->query($consulta);
     $id=0;
-    while($row = $resultado->fetch_array(MYSQLI_NUM)){
-        $id = $row[0];
+    while($registro=mysqli_fetch_array($resultado)){
+        $json['vidDoc'][] = $registro; 
     }
-    $json['idVidDoc'][]=array("idVidDoc" => $id,);
     echo json_encode($json);
 }
 mysqli_close($conexion);
