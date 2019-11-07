@@ -3,16 +3,17 @@ include 'conexion.php';
 $json=array();
 ;
 /*Cargar los comentarios de video*/
-if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])&& isset($_GET["ruta"]) && isset($_GET["fechaSubida"]) && isset($_GET["idUsuario"])){
+if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["eliminado"]) && isset($_GET["descripcion"])&& isset($_GET["ruta"]) && isset($_GET["fechaSubida"]) && isset($_GET["idUsuario"])){
     $idTema=$_GET["idTema"];
     $tipo=$_GET["tipo"];
     $descripcion=$_GET["descripcion"];
     $ruta=$_GET["ruta"];
     $fechaSubida=$_GET["fechaSubida"];
     $idUsuario=$_GET["idUsuario"];
+    $eliminado=$_GET["eliminado"];
     if($tipo=='v'){
     $sentencia="insert into viddoc 
-    (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema) values('{$tipo}','{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema}) ";
+    (tipo,eliminado,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema) values('{$tipo}', '{$eliminado}' ,'{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema}) ";
     }else{
     $sentencia="insert into viddoc 
     (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema) values('{$tipo}','{$descripcion}','@drawable/doc','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema}) ";
