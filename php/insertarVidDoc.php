@@ -17,6 +17,8 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
     (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema,eliminado) values('{$tipo}','{$descripcion}','@drawable/doc','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema},'N') ";
     }
     $resultado=mysqli_query($conexion, $sentencia);
+    $json['viddoc'][]=$resultado;
+    echo json_encode($json);
 }
 mysqli_close($conexion);
 ?>
