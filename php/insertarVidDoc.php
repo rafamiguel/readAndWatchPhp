@@ -17,12 +17,10 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
     $sentencia="insert into viddoc 
     (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema,eliminado) values('{$tipo}','{$descripcion}','@drawable/doc','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema},'N') ";
     }
-    echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
 
     $sentencia = "select idVidDoc from viddoc";
-    $resultado=$conexion->query($consulta);
-    $id=0;
+    $resultado=mysqli_query($conexion, $sentencia);
     while($registro=mysqli_fetch_array($resultado)){
         $json['vidDoc'][] = $registro; 
     }
