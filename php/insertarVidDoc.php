@@ -18,10 +18,9 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["descripcion"])
     (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema,eliminado) values('{$tipo}','{$descripcion}','@drawable/doc','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema},'N') ";
     }
     $resultado=mysqli_query($conexion, $sentencia);
-
+    sleep(2);
     $sentencia = "select idVidDoc from viddoc";
     $resultado=mysqli_query($conexion, $sentencia);
-    sleep(2);
     $id = 0;
     while($registro=mysqli_fetch_array($resultado)){
         $id = $registro['idVidDoc']; 
