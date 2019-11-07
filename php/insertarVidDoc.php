@@ -13,10 +13,10 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["eliminado"]) &
     $eliminado=$_GET["eliminado"];
     if($tipo=='v'){
     $sentencia="insert into viddoc 
-    (tipo,eliminado,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema) values('{$tipo}', '{$eliminado}' ,'{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema}) ";
+    (tipo,eliminado,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema,eliminado) values('{$tipo}', '{$eliminado}' ,'{$descripcion}','@drawable/miniatura','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema},'N') ";
     }else{
     $sentencia="insert into viddoc 
-    (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema) values('{$tipo}','{$descripcion}','@drawable/doc','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema}) ";
+    (tipo,descripcion,rutaImagen,ruta,fechaSubida,visitas,idUsuario,idSubtema,eliminado) values('{$tipo}','{$descripcion}','@drawable/doc','{$ruta}','{$fechaSubida}',0,{$idUsuario},{$idTema},'N') ";
     }
     echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
