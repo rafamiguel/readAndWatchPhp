@@ -3,7 +3,7 @@ include 'conexion.php';
 $json=array();
 if(isset($_GET["idUsuario"])){
 	$idUsuario=$_GET["idUsuario"];
-	$consulta="select * from viddoc WHERE idUsuario= {$idUsuario} ";
+	$consulta="select * from viddoc WHERE idUsuario = {$idUsuario} and tipo ='v' ";
 	$resultado=mysqli_query($conexion, $consulta);
 
 	  while($r=mysqli_fetch_array($resultado)){
