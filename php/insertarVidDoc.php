@@ -20,7 +20,15 @@ if(isset($_GET["idTema"]) && isset($_GET["tipo"]) && isset($_GET["eliminado"]) &
     }
     echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
-    //echo json_encode($json);
+
+    $sentencia = "select idVidDoc from viddoc";
+    $resultado=$conexion->query($consulta);
+    $id=0;
+    while($row = $resultado->fetch_array(MYSQLI_NUM)){
+        $id = $row[0];
+    }
+    $json['idVidDoc'][]=array("idVidDoc" => $id,);
+    echo json_encode($json);
 }
 mysqli_close($conexion);
 ?>
