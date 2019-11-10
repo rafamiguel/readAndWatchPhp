@@ -18,7 +18,19 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         }
         $reportes+=1;
         if($reportes==1){
-            $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc) values({$reportes},'{$tipo}',{$idVidDoc})";
+            if(tipo== 'Contenido sexual u obseno'){
+            $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 1)";
+            }
+            elseif(tipo== 'Es spam'){
+            $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 2)";
+            }
+            elseif(tipo== 'No es apropiado al tema o materia'){
+            $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 3)";
+            }
+            elseif(tipo== 'No se puede visualizar'){
+            $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 4)";
+            }
+
             $resultado=mysqli_query($conexion, $sentencia);
         }else{
             $sentencia="update reportesviddoc  set reportes={$reportes} where idVidDoc={$idVidDoc}";
