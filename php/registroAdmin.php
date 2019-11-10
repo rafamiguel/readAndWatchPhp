@@ -15,7 +15,7 @@ $resultado=mysqli_query($conexion, $consulta);
 
  if(is_null(mysqli_fetch_array($resultado))){
   $json['usuario'][]=array("existencia" => "no",);
-  echo json_encode($json);
+  //echo json_encode($json);
 
   $insert="INSERT INTO usuario(correo, contrasena, nombre, apellidos, telefono, descripcion, rutaFoto, tipo, estado) VALUES ('{$txtCorreo}', '{$txtContrasena}', '{$txtNombre}', '{$txtApellido}', 'NA', 'NA', 'hshsh', 'A', 'N')";  
   
