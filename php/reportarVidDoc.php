@@ -18,16 +18,16 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         }
         $reportes+=1;
         if($reportes==1){
-            if(tipo== 'Contenido sexual u obseno'){
+            if($tipo== 'Contenido sexual u obseno'){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 1)";
             }
-            elseif(tipo== 'Es spam'){
+            elseif($tipo== 'Es spam'){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 2)";
             }
-            elseif(tipo== 'No es apropiado al tema o materia'){
+            elseif($tipo== 'No es apropiado al tema o materia'){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 3)";
             }
-            elseif(tipo== 'No se puede visualizar'){
+            else($tipo== 'No se puede visualizar'){
             $sentencia="insert into reportesviddoc(reportes,tipo,idVidDoc,idCastigo) values({$reportes},'{$tipo}',{$idVidDoc}, 4)";
             }
 
