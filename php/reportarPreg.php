@@ -18,8 +18,28 @@ if(isset($_GET["idPregunta"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"
         }
         $reportes+=1;
         if($reportes==1){
-            $sentencia="insert into reportespreg(reportes,tipo,idPregunta) values({$reportes},'{$tipo}',{$idPregunta})";
+            
+
+            if($tipo == "Contenido sexual u obseno"){
+            $sentencia="insert into reportespreg(reportes,tipo,idPregunta,idCastigo) values({$reportes},'{$tipo}',{$idPregunta}, 1)";
             $resultado=mysqli_query($conexion, $sentencia);
+            }
+            elseif($tipo == "Es spam"){
+             $sentencia="insert into reportespreg(reportes,tipo,idPregunta,idCastigo) values({$reportes},'{$tipo}',{$idPregunta}, 2)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+            elseif($tipo == "No es apropiado al tema o materia"){
+            $sentencia="insert into reportespreg(reportes,tipo,idPregunta,idCastigo) values({$reportes},'{$tipo}',{$idPregunta}, 3)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+            else{
+             $sentencia="insert into reportespreg(reportes,tipo,idPregunta,idCastigo) values({$reportes},'{$tipo}',{$idPregunta}, 4)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+
+
+
+
         }else{
             $sentencia="update reportespreg set reportes={$reportes} where idPregunta={$idPregunta}";
             $resultado=mysqli_query($conexion, $sentencia);
