@@ -7,7 +7,7 @@ $json=array();
             $idUsuario=$_GET["idUsuario"];
             $consulta="SELECT ruta, rutaImagen from viddoc WHERE idUsuario = {$idUsuario} and eliminado='S'";  
             $resultado=mysqli_query($conexion, $consulta);
-            if($registro=mysqli_fetch_array($resultado)){
+            while($registro=mysqli_fetch_array($resultado)){
                 $json['usuario'][] =$registro; 
             }else{
               $resulta["correo"]='';
