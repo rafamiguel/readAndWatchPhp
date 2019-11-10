@@ -18,8 +18,17 @@ if(isset($_GET["idPerfil"]) && isset($_GET["tipo"]) && isset($_GET["idUsuario"])
         }
         $reportes+=1;
         if($reportes==1){
-            $sentencia="insert into reportesperfil(reportes,tipo,idPerfil) values({$reportes},'{$tipo}',{$idPerfil})";
+        
+                if($tipo == "Contenido sexual u obseno"){
+            $sentencia="insert into reportesperfil(reportes,tipo,idPerfil,idCastigo) values({$reportes},'{$tipo}',{$idPerfil}, 1)";
             $resultado=mysqli_query($conexion, $sentencia);
+            }
+            else{
+             $sentencia="insert into reportesperfil(reportes,tipo,idPerfil,idCastigo) values({$reportes},'{$tipo}',{$idPerfil}, 2)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+
+
         }else{
             $sentencia="update reportesperfil set reportes={$reportes} where idPerfil={$idPerfil}";
             $resultado=mysqli_query($conexion, $sentencia);
