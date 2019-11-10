@@ -18,8 +18,26 @@ if(isset($_GET["idComentario"]) && isset($_GET["tipo"]) && isset($_GET["idUsuari
         }
         $reportes+=1;
         if($reportes==1){
-            $sentencia="insert into reportescom(reportes,tipo,idComentario) values({$reportes},'{$tipo}',{$idComentario})";
+
+
+            if($tipo == "Contenido sexual u obseno"){
+            $sentencia="insert into reportescom(reportes,tipo,idComentario,idCastigo) values({$reportes},'{$tipo}',{$idComentario}, 1)";
             $resultado=mysqli_query($conexion, $sentencia);
+            }
+            elseif($tipo == "Es spam"){
+            $sentencia="insert into reportescom(reportes,tipo,idComentario,idCastigo) values({$reportes},'{$tipo}',{$idComentario}, 2)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+            elseif($tipo == "No es apropiado al tema o materia"){
+            $sentencia="insert into reportescom(reportes,tipo,idComentario,idCastigo) values({$reportes},'{$tipo}',{$idComentario}, 3)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+            else{
+            $sentencia="insert into reportescom(reportes,tipo,idComentario,idCastigo) values({$reportes},'{$tipo}',{$idComentario}, 4)";
+            $resultado=mysqli_query($conexion, $sentencia);
+            }
+
+
         }else{
             $sentencia="update reportescom set reportes={$reportes} where idComentario={$idComentario}";
             $resultado=mysqli_query($conexion, $sentencia);
