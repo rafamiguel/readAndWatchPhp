@@ -6,7 +6,7 @@ $json=array();
 
     $idVidDoc=$_GET["idVidDoc"];
     
-    $sentencia="UPDATE viddoc as a INNER JOIN reportesviddoc as b on a.idVidDoc = b.idVidDoc set a.eliminado = 'S' where b.reportes >= 10 and b.tipo = 'No es apropiado al tema o materia' ";
+    $sentencia="UPDATE viddoc as a INNER JOIN reportesviddoc as b on a.idVidDoc = b.idVidDoc set a.eliminado = 'S' where b.reportes >= 3 and b.tipo = 'No se puede visualizar' ";
     // echo $sentencia;
      if(mysqli_query($conexion, $sentencia)){
     $json['usuario'][]=array("success" => 1,);
