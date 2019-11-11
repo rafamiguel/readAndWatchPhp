@@ -6,7 +6,7 @@ $json=array();
 
     $idPerfil=$_GET["idPerfil"];
     
-    $sentencia="delete usuario, reportesperfil from usuario INNER JOIN reportesperfil on usuario.idUsuario = reportesperfil.idPerfil where reportesperfil.reportes >= 3 and reportesperfil.tipo = 'Contenido sexual u obseno' ";
+    $sentencia="UPDATE usuario as a INNER JOIN reportesperfil as b on a.idUsuario = b.idPerfil set a.estado = 'S' where b.reportes >= 3 and b.tipo = 'Contenido sexual u obseno' ";
     //echo $sentencia;
     if(mysqli_query($conexion, $sentencia)){
     $json['usuario'][]=array("success" => 1,);
