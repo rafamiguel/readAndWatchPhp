@@ -9,7 +9,7 @@ $json=array();
             $nombre=$_GET["nombre"];
             $idTema = 1;
 
-            $consulta="SELECT idTema from tema WHERE nombre= ".$tema;  
+            $consulta="SELECT idTema from tema WHERE nombre= '".$tema."'";  
             $resultado=mysqli_query($conexion, $consulta);
 
             while($registro=mysqli_fetch_array($resultado)){
