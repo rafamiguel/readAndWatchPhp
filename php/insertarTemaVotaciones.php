@@ -23,7 +23,7 @@ $json=array();
                 $json['usuario'][] =$registro; 
             }else{
             
-             $resulta["idTema"]='';
+             $resulta["consulta"]=$consulta;
    
               $json['usuario'][]=$resulta;
             }
