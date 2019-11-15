@@ -10,7 +10,7 @@ if(isset($_GET["fechaActual"])){
 		$expire = $r["fechaSubida"];
 		echo $expire."<br>";
 		$expire_dt = new DateTime($expire);
-		$expire_dt=strtotime("+1 weeks", $expire_dt);
+		$expire_dt->modify('+1 week');
     	echo $expire."<br>";
     	$today_dt = new DateTime($fechaActual);
 	
