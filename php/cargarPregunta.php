@@ -8,9 +8,7 @@ if(isset($_GET["fechaActual"])){
     $resultado=mysqli_query($conexion, $consulta);
     echo "hola";
     while($r=mysqli_fetch_array($resultado)){
-    	$expire = $r["fechaSubida"];
-    	$expire->modify('+ 1 weeks');
-    	echo "expire:".$expire;
+    	echo  $r["fechaSubida"];
     	echo "<br>id:".$r["idPregunta"];
 
     }
