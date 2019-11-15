@@ -12,14 +12,7 @@ if(isset($_GET["fechaActual"])){
     	$expire->modify('+ 1 weeks');
     	echo "expire:".$expire;
     	echo "<br>id:".$r["idPregunta"];
-    	$today_dt = new DateTime($fechaActual);
-		$expire_dt = new DateTime($expire);
-		if ($expire_dt < $today_dt) { 
-			$sentencia = "delete from pregunta where idPregunta=".$r["idPregunta"];
-			mysqli_query($conexion, $sentencia);
-		 }else{
-        $json['usuario'][] = $r;
-        } 
+
     }
 
     mysqli_close($conexion);
