@@ -10,6 +10,8 @@ if(isset($_GET["fechaActual"])){
     while($r=mysqli_fetch_array($resultado)){
     	$expire = $r["fechaSubida"];
     	$expire->modify('+ 1 weeks');
+    	echo "expire:".$expire;
+    	echo "<br>id:".$r["idPregunta"];
     	$today_dt = new DateTime($fechaActual);
 		$expire_dt = new DateTime($expire);
 		if ($expire_dt < $today_dt) { 
