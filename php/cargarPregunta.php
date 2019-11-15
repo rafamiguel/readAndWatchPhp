@@ -13,9 +13,7 @@ if(isset($_GET["fechaActual"])){
 		$expire_dt=strtotime("+1 weeks", $expire_dt);
     	echo $expire."<br>";
     	$today_dt = new DateTime($fechaActual);
-    	echo $today_dt."<br>";
 	
-		echo $expire_dt."<br>";
 		if ($expire_dt < $today_dt) { 
 			echo "hola";
 			$sentencia = "delete from pregunta where idPregunta=".$r["idPregunta"];
