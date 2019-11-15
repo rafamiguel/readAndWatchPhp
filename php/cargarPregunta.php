@@ -9,7 +9,7 @@ if(isset($_GET["fechaActual"])){
     while($r=$resultado->fetch_assoc()){
 		$expire = $r["fechaSubida"];
 		echo $expire."<br>";
-		strtotime("+1 weeks", $expire);
+		$expire=strtotime("+1 weeks", $expire);
     	echo $expire."<br>";
     	$today_dt = new DateTime($fechaActual);
     	echo $today_dt."<br>";
