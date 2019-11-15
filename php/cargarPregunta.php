@@ -16,10 +16,10 @@ if(isset($_GET["fechaActual"])){
 			mysqli_query($conexion, $sentencia);
 		 }else{
         $json['usuario'][] = $r;
-            echo json_encode($json);
+
         } 
     }
-
+    echo json_encode($json);
     mysqli_close($conexion);
 
 
