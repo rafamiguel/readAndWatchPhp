@@ -12,7 +12,6 @@ if(isset($_GET["idPregunta"]) && isset($_GET["titulo"]) && isset($_GET["descripc
 
     $sentencia="insert into pregunta 
     (idPregunta,titulo,descripcion,eliminado,idUsuario) values({$idPregunta},'{$titulo}', '{$descripcion}','N',{$idUsuario}) ";
-    echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
 	}
 	mysqli_close($conexion);
