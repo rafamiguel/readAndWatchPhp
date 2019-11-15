@@ -9,8 +9,7 @@ if(isset($_GET["fechaActual"])){
     while($r=$resultado->fetch_assoc()){
 		$expire = $r["fechaSubida"];
     	$expire->modify('+ 1 weeks');
-    	echo "expire:".$expire;
-    	echo "<br>id:".$r["idPregunta"];	$today_dt = new DateTime($fechaActual);
+    	$today_dt = new DateTime($fechaActual);
 		$expire_dt = new DateTime($expire);
 		if ($expire_dt < $today_dt) { 
 			$sentencia = "delete from pregunta where idPregunta=".$r["idPregunta"];
