@@ -18,9 +18,9 @@ if(isset($_GET["idVidDoc"]) && isset($_GET["idTema"]) && isset($_GET["tipo"]) &&
     $sentencia="update viddoc set
     tipo='{$tipo}',descripcion='{$descripcion}',rutaImagen='@drawable/doc',ruta='{$ruta}',fechaSubida='{$fechaSubida}',visitas=0,idUsuario={$idUsuario},idSubtema={$idTema} where idVidDoc={$idVidDoc}";
     }
-    echo $sentencia;
     $resultado=mysqli_query($conexion, $sentencia);
-    //echo json_encode($json);
+    $json['viddoc'][]=$resultado;
+    echo json_encode($json);
 }
 mysqli_close($conexion);
 ?>
